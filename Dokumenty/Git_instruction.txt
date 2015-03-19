@@ -59,6 +59,14 @@ Najpierw omowmy pare przydatnych funkcji , z reszta to wszystko wyjasni :
 				git commit -m "Poprawa nazewnictwa w folderze"
 	      Wyskoczy nam tabela przedstawiajaca zaladowane zmiany :) 
 
+*git push origin master- wypycha nasze zmiany na zewnatrz czyli kazdy z uzytkownikow repo bedzie juz to widzial 
+			 Aktualizacja wersji repo. Zapyta nas o nazwe konta i haslo do GitHuba jesli repo nie jest nasze
+			 czyli jesli np utworzyl je Slawek. 
+
+* git fech - powinnismy to uruchomic zawsze po wejsciu do katalogi repo . Funkcja ta aktualizuje nam wersje origin 
+	     jesli zostaly wprowadzone zmiany przez innych uzytkownikow
+
+
 * git log- pokazuje nam liste dokonanych zmian w repozytorium , kiedy , przez kogo i co zmienil 
 
 
