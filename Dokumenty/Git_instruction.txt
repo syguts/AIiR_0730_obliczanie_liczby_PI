@@ -1,0 +1,74 @@
+--------INSTRUKCJA DO SKONFIGUROWANIA I URUCHOMIENIA GITA Z TERMINALA --------
+
+1. Pierwsze co robimy to instalujemy najnowsza wersje gita z poziomu przegladarki 
+   najlepiej. Ewentualnie lecicie sobie z terminala:
+		sudo apt-get install git
+
+2. Drugi kroczek to ustawienie swojej nazwy konta zalozonego na stronie GitHub:
+		sudo git config --global user.name "nazwa_konta_na_github"
+
+3. Pozniej podajemy podobnie maila na ktorego mamy zalozone konto na GitHub:
+		sudo git config --global user.email "email_taki_sam_jak_na_gicie"
+
+4. Ten krok jest najwazniejszy w sumie. Mamy poustawiane dane do naszego konta. 
+   Teraz nalezy je potwierdzic i polaczyc z interesujacym nas repozytorium. 
+   Do osiagniecia tego celu mozliwe sa dwie drogi : easy - przez protokol HTTPS 
+   harder- SSH. Oczywiscie wybieramy easy bo po co wytaczac armate zeby zabic komara. 
+   W ssh trzeba tworzyc jakies klucze i inne pierdoly. No way ! 
+
+* I tu ciekawostka bo po wykonaniu tylko tych pierdolek, git sam pobral 
+  mi nasze repo i wrzucil do dokumentow.Nie wiem czy tak stanie sie tez u was wiec 
+  podam wam jak sciagnac repo do zadanego przez nas katalogu.
+
+5. A wiec lecim z tym polaczeniem :) Potrzebny bedzie nam adres naszego repo. 
+   Mozna je wziasc z okienka po prawej stronie kiedy otworzymy repo w przegladarce. 
+   HTTPS clone URL - nazwa okienka. Ktos pomyslal i nawet umiescil
+   przycisk do kopiowania adresu do schowka bez uzycia ctrl + c ;) 
+   Przykladowo adres do naszego repo z AIIR:
+		https://github.com/syguts/AIiR_0730_obliczanie_liczby_PI.git
+
+6. Mamy adres to idziemy dalej do nawiazania samego polaczenia :) 
+   git clone https://github.com/syguts/AIiR_0730_obliczanie_liczby_PI.git AIIR
+   Gdzie AIIR to nazwa katalogu w ktorym ma sie rozpakowac repo ;) 
+   I w ten sposob mamy kopie lokalna naszego repo.
+
+-----------------------------------------------------------------------------------
+
+--------WPROWADZANIE ZMIAN W REPOZYTORIUM Z TERMINALA------------------------------
+
+Najpierw omowmy pare przydatnych funkcji , z reszta to wszystko wyjasni :
+* git status -powie nam jakie zmiany zostaly dokonane wzgledem wersji origin 
+              czyli tej przedtym zanim zaczelismy grzebac.
+
+* git add nazwa_pliku/katalogu- funkcja ta powoduje dodanie pliku do plkow sledzonych 
+          			czyli takich, ktore git zaczyna obserwowac pod wzgledem zmian. 
+				Jednak sam add nie wprowadzi go nam jeszcze do mastera repo. 
+ 				Jest on tylko sledzony. Warto wyprobowac poprzez:
+				Po sciagnieciu repo wbijamy git status , pewni powie ze wszystko 
+				aktualne . Stworzy plik testowy zrobic git add test. I znowu 
+				sprawdzic status zobaczymy ze wowczas bedzie on uwzgledniony 
+				jako dodany, bez zrobienia add znowu by powiedzial 
+				ze nie dokonano zmian. Myslicie sobie pewnie 
+				ze przesrane tak dodawac kazdy plik ktory wrzucimy . Nie wystarczy 
+				ze katalog do ktorego cos dodamy jest sledzony , wowczas git zauwazy 
+				zmiane w postaci nowych plikow , zmian nazw , edycji plikow :) 
+
+* git commit- zatwierdzenie wprowadzonych zmian , dokonujemy commita do glownej wersji repo tym 
+	      samym ja aktualizujac . 
+              Opis commita mozemy podac dodajac parametr -m i opis:
+				git commit -m "Poprawa nazewnictwa w folderze"
+	      Wyskoczy nam tabela przedstawiajaca zaladowane zmiany :) 
+
+* git log- pokazuje nam liste dokonanych zmian w repozytorium , kiedy , przez kogo i co zmienil 
+
+
+To tyle jesli chodzi o podstawy podstaw , w razie czegos nie jasnego to odsylam to bardzo obszernego
+dokumentu :
+
+http://git-scm.com/book/pl/v1/Pierwsze-kroki
+
+Pozdrawiam ! 
+
+*********************************Author:Pawel „Pablo” Sternik*****************************************
+
+LICENSE : BEERWARE !!! 
