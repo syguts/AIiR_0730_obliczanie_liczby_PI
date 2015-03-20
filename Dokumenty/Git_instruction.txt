@@ -69,6 +69,21 @@ Najpierw omowmy pare przydatnych funkcji , z reszta to wszystko wyjasni :
 
 * git log- pokazuje nam liste dokonanych zmian w repozytorium , kiedy , przez kogo i co zmienil 
 
+Podsumowujac uzywanie sprowadza sie do sekwencji :
+*jednokrotnie
+- instalacja 
+-podanie danych
+- sklonowanie repo
+*pozniej
+- wbijam i robie git fetch aby zaktualizowac wersje 
+- jezeli cos sie zmienilo sprawdzam poprze git log co to ktos pozmienial
+- robie swoje czyli edytuje , wrzucam pliki 
+- sprawdzam status czy git zobaczyl zmiany , jesli nie widocznie trzeba go jebnac i zrobic git add nazwa_nowego_pliku lub nazwa_edytowanego
+  przypominam zrobic to z katalogu gdzie znajduje sie dany plik
+- ewentualnie w razie problemow sprawdzam jeszcze raz status po zrobieniu addow
+- gitara to robie commita : git commit -m ’’……opis’’
+- wypycham na zewnatrz poprzez git push origin master
+- sprawdzam na stronce w przegladarce czy wszystko poszlo po mojej mysli ;)  
 
 To tyle jesli chodzi o podstawy podstaw , w razie czegos nie jasnego to odsylam to bardzo obszernego
 dokumentu :
