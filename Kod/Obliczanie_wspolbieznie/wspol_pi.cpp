@@ -8,12 +8,11 @@
 using namespace std;
 
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
-int *counter;
-int przydzialPunktow;
-int idWatku;
+int idWatek,*counter,przydzialPunktow;
 
 void *MojaFunkcjaDlaWatku(void *arg) 
 {
+	cout << "Watek " <<  pthread_self() << endl;
 	double x, y, potega, odleglosc;
 
 		for(int i=0; i < przydzialPunktow; i++)
@@ -21,21 +20,20 @@ void *MojaFunkcjaDlaWatku(void *arg)
 			x  = ( ( (double)rand() / (RAND_MAX) ) * 2) - 1;
 			y  = ( ( (double)rand() / (RAND_MAX) ) * 2) - 1;
 			potega = pow(x, 2) + pow(y, 2);
-                        odleglosc = sqrt(potega);
+            odleglosc = sqrt(potega);
 				if(odleglosc <= 1)
-				{
-				
-					counter[idWatku]++;
+				{				
+					counter[idWatek]++;
 				}
 		}
 
-        return NULL;	
+   return NULL;	
 }
 
 void PobieranieDanych(int &iloscPunktow, int &watki)           // Funkcja do pobierania danych o ilosci Punktow wstrzeliwanych w kwadrat/kolo
 {
-        cout << "Prosze podac ilosc wszystkich punktow: ";
-        cin >> iloscPunktow;
+    cout << "Prosze podac ilosc wszystkich punktow: ";
+    cin >> iloscPunktow;
 	cout << "Prosze podac ilosc watkow: ";
 	cin >> watki;          
 }
@@ -46,26 +44,25 @@ int main(void)
 	pthread_t *mojwatek;
 	PobieranieDanych(punkty, liczbaWatkow);
 	mojwatek = new pthread_t[liczbaWatkow];
+	idWatek = new int[liczbaWatkow];
 
 	srand(time(NULL));
-
 	tablicaPrzydzialu = new int[liczbaWatkow];
 	int sredniaPunktow = punkty / liczbaWatkow;
-
 	counter = new int[liczbaWatkow];
 	
 		for(int i=0; i < liczbaWatkow -1; i++)
 		{
 			tablicaPrzydzialu[i] = sredniaPunktow;
+			idWatek[i] = i;
 		}
 
 	tablicaPrzydzialu[liczbaWatkow-1] = punkty - (sredniaPunktow * (liczbaWatkow-1));
 
 		for(int i=0; i < liczbaWatkow; i++)
 		{	
-		    przydzialPunktow= tablicaPrzydzialu[i];
-		    idWatku = i;
-		    cout << "ID Watku : " << idWatku << endl;		
+			idWatek = i;
+		    przydzialPunktow= tablicaPrzydzialu[i];		
 	  		if ( pthread_create( &mojwatek[i], NULL, MojaFunkcjaDlaWatku,NULL))
 			{
         			cout << "blad przy tworzeniu watku\n"; 
@@ -81,6 +78,7 @@ int main(void)
         			abort();
   			}
 		}
+
 	int suma=0;	
 		for(int i=0; i < liczbaWatkow ; i++)
 		{
