@@ -33,7 +33,7 @@ TEMPLATE_LOADERS = (
 
 
 TEMPLATE_DIRS = (
-    '/home/cichy/Projekty/Django/appI/templates',
+    '../appI/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -62,9 +62,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+
 ROOT_URLCONF = 'appI.urls'
 
 WSGI_APPLICATION = 'appI.wsgi.application'
+
+AUTH_PROFILE_MODULE = 'appI.UserProfile'
 
 
 # Database
@@ -76,6 +79,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+LOGIN_URL = '/login/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

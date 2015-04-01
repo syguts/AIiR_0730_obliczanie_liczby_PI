@@ -26,6 +26,12 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
+
 TEMPLATE_DIRS = (
     '/home/cichy/Projekty/Django/appI/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -44,6 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PI',
+    'home',
 )
 
 MIDDLEWARE_CLASSES = (

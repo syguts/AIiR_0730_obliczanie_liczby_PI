@@ -1,9 +1,42 @@
-{% if latest_PI_list %}
-<ul>
-    {% for Task in latest_PI_list %}
-        <li><a href="/PI/{{ Task.id }}/">{{ Task.temporary_text }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-    <p>No PIs are available.</p>
-{% endif %}
+{% extends "base.html" %}
+
+{% block title %}Strona Główna{% endblock %}
+
+{% block content %}
+
+    <!-- jumbotron -->
+
+	<div class="jumbotron">
+		<div class="container text-center">
+			<h1>Obliczanie liczby PI</h1>
+			<p>Strona poświecona obliczaniu liczby PI, korzystąjac z MPI</p>
+		</div>
+	</div>
+
+
+    <div class="container">
+        <section>
+            <div class="page-header" id="info">
+                <h2>INFO</h2>
+                {% if user.is_authenticated %}
+                <p>Witaj {{ user.username }}!</p>
+                {% else %}
+                <p>Aktualnie jesteś niezalogowany. Aby móc korzystać z serwisu musisz się zalogować, bądź zarejestrować.</p>
+                {% endif %}
+            </div>
+            {% if user.is_authenticated %}
+            <div class="page-header" id="myTasks">
+                <h2>Historia zadań</h2>
+                <p>Wstawić pobieranie zadań z bazy dla zalogowanego użytkownika</p>
+            </div>
+            <div class="page-header" id="newTask">
+                <h2>Nowe zadanie</h2>
+                <p>Wstawić dodawanie nowych zadań</p>
+            </div>
+            {% endif %}
+        </section>
+    </div> <!-- End container -->
+
+
+{% endblock %}
+
