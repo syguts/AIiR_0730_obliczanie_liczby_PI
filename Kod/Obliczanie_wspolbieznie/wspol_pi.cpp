@@ -10,12 +10,16 @@ using namespace std;
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 int *counter;
 int przydzialPunktow;
-int idWatku;
+int idWatku=0;
 
 void *MojaFunkcjaDlaWatku(void *arg) 
 {
 	double x, y, potega, odleglosc;
-
+	pthread_mutex_lock(&mutex1);
+	int numerek = idWatku;
+	idWatku++;
+	cout << endl<< numerek << endl;
+	pthread_mutex_unlock(&mutex1);
 		for(int i=0; i < przydzialPunktow; i++)
 		{
 			x  = ( ( (double)rand() / (RAND_MAX) ) * 2) - 1;
@@ -24,8 +28,7 @@ void *MojaFunkcjaDlaWatku(void *arg)
                         odleglosc = sqrt(potega);
 				if(odleglosc <= 1)
 				{
-				
-					counter[idWatku]++;
+					counter[numerek]+= 1;
 				}
 		}
 
@@ -60,12 +63,9 @@ int main(void)
 		}
 
 	tablicaPrzydzialu[liczbaWatkow-1] = punkty - (sredniaPunktow * (liczbaWatkow-1));
-
 		for(int i=0; i < liczbaWatkow; i++)
 		{	
-		    przydzialPunktow= tablicaPrzydzialu[i];
-		    idWatku = i;
-		    cout << "ID Watku : " << idWatku << endl;		
+		    przydzialPunktow= tablicaPrzydzialu[i];	
 	  		if ( pthread_create( &mojwatek[i], NULL, MojaFunkcjaDlaWatku,NULL))
 			{
         			cout << "blad przy tworzeniu watku\n"; 
