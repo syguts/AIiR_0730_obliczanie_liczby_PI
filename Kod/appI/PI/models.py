@@ -1,10 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
+import django.contrib.auth
+from django.template.defaultfilters import default
+from django.utils import timezone
+
 
 #klasa dla zadan
 class Task(models.Model):
-	temporary_text = models.CharField(max_length=200)
-	add_date = models.DateTimeField('date added')
+	userID = models.ForeignKey('auth.User')
+	#Jest narazie z zakresu integera
+	numberOfPoints = models.IntegerField(default=0)
+	add_date = models.DateTimeField(default=timezone.now)
+
 
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.

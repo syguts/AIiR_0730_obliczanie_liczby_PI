@@ -1,18 +1,47 @@
+from PI.models import Task
+import PI
 from django.template import Context, loader
 from django.shortcuts import render
 from django.shortcuts import render_to_response
+from django.utils import timezone
 from django.template import RequestContext
-from PI.forms import UserForm
+from PI.forms import UserForm, CommisionTask
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from .forms import CommisionTask 
  
 from django.http import HttpResponse
-from PI.models import Task
+
+from datetime import date
+import parser
+from django.forms.fields import DateTimeField
+
 
 def index(request):
-    return render_to_response('index.html', context_instance=RequestContext(request))
+    
+    
+    if request.method == "POST":
+        form = CommisionTask(request.POST)
+        if form.is_valid():
+            Task = form.save(commit=False)
+            Task.userID = request.user
+            Task.save()
+            
+    else:
+        form= CommisionTask()
+ 
+ 
+    """Tutaj mamy pobieranie danych z tabeli i przekazywanie do strony. Pobieramy wszystkie dane z tabeli task czyli .all()
+    filtrujemy po userID = ID   oraz sortujemy po dacie dodania malejaco od najmlodszego czyli descending a odpowiada za to:
+     minus myslnik - przed fieldem czyli rekordem add_date""" 
+    form2 = PI.models.Task.objects.all().filter(userID= request.user.id).order_by('-add_date')
+    return render_to_response('index.html', {'form': form, 'form2': form2}, context_instance=RequestContext(request))
+          
+
+
+
 
 def register(request):
 
@@ -47,6 +76,7 @@ def register(request):
         # They'll also be shown to the user.
         else:
             print user_form.errors
+            return render(request, 'unavailable_login.html', {})
 
     # Not a HTTP POST, so we render our form using two ModelForm instances.
     # These forms will be blank, ready for user input.
@@ -94,8 +124,8 @@ def user_login(request):
                 return HttpResponse("Your account is disabled.")
         else:
             # Bad login details were provided. So we can't log the user in.
-            print "Invalid login details: {0}, {1}".format(username, password)
-            return HttpResponse("Invalid login details supplied.")
+            print "Invalid login details: {0}, {1}".format(username, password) 
+            return render(request, 'invalid_login.html', {})
 
     # The request is not a HTTP POST, so display the login form.
     # This scenario would most likely be a HTTP GET.
@@ -113,3 +143,8 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/')
+
+
+
+
+   

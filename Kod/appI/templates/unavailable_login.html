@@ -21,9 +21,6 @@
 
         <div class="collapse navbar-collapse navbar-collapse" id="myNavbar2">
             <a href="/" class="btn btn-info navbar-btn navbar-right">Powrót do strony głównej</a>
-
-
-
             </ul>
         </div>
     </div>
@@ -31,20 +28,7 @@
 
 
 	<div style="position: absolute; left: 1%; font-weight: bold">
-        <h1>Zaloguj się w systemie PI</h1>
-
-        <form id="login_form" method="post" action="/login/">
-            {% csrf_token %}
-            Login: <input type="text" name="username" value="" size="20" />
-            <br />
-            Hasło: <input type="password" name="password" value="" size="20" />
-            <br />
-
-            <input type="submit" value="Zaloguj" class="btn btn-info navbar-btn "/>
-        </form>
+		<h2>Wprowadziłeś login zarezerwowany przez innego użytkownika! Wybierz inny login!</h2>
+		<p>Kliknij <a href="/register/">tutaj</a> aby spróbować zarejestrować się ponownie.</p>
 	</div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-    </body>
-</html>

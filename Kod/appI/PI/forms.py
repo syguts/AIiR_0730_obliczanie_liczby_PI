@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from PI.models import Task, UserProfile
+from django.contrib.admin.utils import label_for_field
+from django.utils.translation import gettext_lazy as _
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -14,3 +16,12 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ('website', 'picture')
         """
+#Klasa obslugi zlecenia zadania
+class CommisionTask(forms.ModelForm):
+    
+    class Meta:
+        model = Task
+        fields = ('numberOfPoints',) 
+        
+        
+        

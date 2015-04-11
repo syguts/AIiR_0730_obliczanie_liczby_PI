@@ -9,7 +9,8 @@
 	<div class="jumbotron">
 		<div class="container text-center">
 			<h1>Obliczanie liczby PI</h1>
-			<p>Strona poświecona obliczaniu liczby PI, korzystąjac z MPI</p>
+			<p>Strona poświecona obliczaniu  liczby PI</p>
+			<p>Wykorzystano algorytm MONTE CARLO oraz technologie MPI</p>
 		</div>
 	</div>
 
@@ -19,20 +20,31 @@
             <div class="page-header" id="info">
                 <h2>INFO</h2>
                 {% if user.is_authenticated %}
-                <p>Witaj {{ user.username }}!</p>
+                <p style="font-weight: bold">Witaj {{ user.username }}!</p>
+                <p>Aby rozpocząć obliczanie liczby PI zdefiniuj liczbę punktów dla algorytmu MONTE CARLO i zleć zadanie do realizacji </p>
+                <p><em>Dla większej liczby punktór alogrytm będzie dokładniejszy, jednak czas obliczeń może się wydłużyć</em></p> 
                 {% else %}
                 <p>Aktualnie jesteś niezalogowany. Aby móc korzystać z serwisu musisz się zalogować, bądź zarejestrować.</p>
                 {% endif %}
             </div>
             {% if user.is_authenticated %}
+             <div class="page-header" id="newTask">
+                <h2>Nowe zadanie</h2>
+              <!-- Korzystanie przy formularzach z konkretnych znacznikow aby dodac nazwe wlasna -->
+       			<form id='form' method="post" class="post-form">{% csrf_token %} 
+                <p>Podaj liczbę punktów: {% for field in form %} {{ field }} {% endfor %}</p>
+                 <input type="submit" name="submit" value="Zleć do realizacji" class="btn btn-info navbar-btn navbar-center"/>
+                </form> 
+            </div>
             <div class="page-header" id="myTasks">
                 <h2>Historia zadań</h2>
-                <p>Wstawić pobieranie zadań z bazy dla zalogowanego użytkownika</p>
-            </div>
-            <div class="page-header" id="newTask">
-                <h2>Nowe zadanie</h2>
-                <p>Wstawić dodawanie nowych zadań</p>
-            </div>
+                 {% for form2 in form2 %}
+    			<div>
+        			<p>Obliczono w dniu: {{ form2.add_date }} -- Zadana ilość punktów: {{ form2.numberOfPoints }}
+    			</div>
+				{% endfor %}
+            </div>         
+           
             {% endif %}
         </section>
     </div> <!-- End container -->
