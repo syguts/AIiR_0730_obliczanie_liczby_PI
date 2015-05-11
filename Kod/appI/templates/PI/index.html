@@ -1,9 +1,0 @@
-{% if latest_PI_list %}
-<ul>
-    {% for Task in latest_PI_list %}
-        <li><a href="/PI/{{ Task.id }}/">{{ Task.temporary_text }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-    <p>No PIs are available.</p>
-{% endif %}
