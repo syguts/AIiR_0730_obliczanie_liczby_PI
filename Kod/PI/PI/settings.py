@@ -61,7 +61,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/home/cichy/Projekty/PI/my.cnf',
+            'read_default_file': '/home/slawek/workspace_eclipse/PI/my.cnf',
         },
     }
 }
@@ -84,3 +84,5 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+

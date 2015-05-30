@@ -1,4 +1,4 @@
-from PI2.models import Task
+from PI2.models import Task, DoneTask
 import PI2
 from django.template import Context, loader
 from django.shortcuts import render
@@ -22,25 +22,56 @@ from django.forms.fields import DateTimeField
 def index(request):
     
     
-    if request.method == "POST":
+   
         form = CommisionTask(request.POST)
         if form.is_valid():
             Task = form.save(commit=False)
             Task.userID = request.user
             Task.save()
             
-    else:
-        form= CommisionTask()
+            
+           
+            
+            
         
+            
+            
+            #Resetuje formularz po pobraniu poprawnym
+            form =CommisionTask(0);  
  
  
+        return render_to_response('index.html', {'form': form }, context_instance=RequestContext(request))
+          
+
+
+def wyczysc(request):
+    
+
+    Task.objects.all().delete()
+    DoneTask.objects.all().delete()
+     
+    return HttpResponse('Czyszczenie bazy wykonane!')
+
+
+
+def odswiez(request):
+    
     """Tutaj mamy pobieranie danych z tabeli i przekazywanie do strony. Pobieramy wszystkie dane z tabeli task czyli .all()
     filtrujemy po userID = ID   oraz sortujemy po dacie dodania malejaco od najmlodszego czyli descending a odpowiada za to:
      minus myslnik - przed fieldem czyli rekordem add_date""" 
     form2 = PI2.models.DoneTask.objects.all().filter(userID= request.user.id).order_by('-add_date')
-   
-    return render_to_response('index.html', {'form': form, 'form2': form2}, context_instance=RequestContext(request))
-          
+    
+    return render_to_response('odswiez.html', {'form2': form2}, context_instance=RequestContext(request))
+
+
+def odswiez2(request):
+    
+    """Tutaj mamy pobieranie danych z tabeli i przekazywanie do strony. Pobieramy wszystkie dane z tabeli task czyli .all()
+    filtrujemy po userID = ID   oraz sortujemy po dacie dodania malejaco od najmlodszego czyli descending a odpowiada za to:
+     minus myslnik - przed fieldem czyli rekordem add_date""" 
+    form3 = PI2.models.Task.objects.all().filter(userID= request.user.id).order_by('-add_date')
+    
+    return render_to_response('odswiez2.html', {'form3': form3}, context_instance=RequestContext(request))
 
 
     

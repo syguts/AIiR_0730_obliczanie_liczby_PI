@@ -19,9 +19,12 @@ class UserProfileForm(forms.ModelForm):
 #Klasa obslugi zlecenia zadania
 class CommisionTask(forms.ModelForm):
     
+    numberOfPoints = forms.IntegerField(label ="")
+
     class Meta:
         model = Task
-        fields = ('numberOfPoints',) 
+        fields = ('numberOfPoints', ) 
         
+  
         
         

@@ -1,0 +1,6 @@
+  <h2>Historia zadań zleconych</h2>
+                   {% for form3 in form3 %}
+    			<div>
+        			<p>Zlecono w dniu: {{ form3.add_date }} -- Zadana ilość punktów: {{ form3.numberOfPoints }} -- Zadanie zostało zlecone i oczekuje w kolejce.
+    			</div>
+				{% endfor %}

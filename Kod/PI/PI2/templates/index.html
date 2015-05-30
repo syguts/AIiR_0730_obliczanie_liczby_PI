@@ -4,6 +4,65 @@
 
 {% block content %}
 
+
+
+
+
+
+<script type="text/javascript">
+//Skrypt obslugi czyszczenia bazy danych wszystkich uzytkownikow
+
+$(document).ready( function(){
+	
+
+	$( "#czysc" ).on( "click", function(){
+		
+		$.ajax({
+		   	type: "GET",
+		    url: '/wyczysc',
+		    success: function(data){
+		    	alert( data );
+		    },
+		    error: function()
+		    {
+		    	alert( "Czyszczenie nie powiodlo sie" );
+		    	
+		    }
+		    
+	   		
+		});
+
+	});
+	
+});
+	
+</script>
+
+
+
+<script>
+
+
+	setTimeout(function(){
+	
+	$('#myTasks').load("odswiez");
+	$('#ZleconeTasks').load("odswiez2");
+
+			
+	}, 0);
+
+
+	setInterval("moja_funkcja();",1000); 
+	function moja_funkcja(){
+
+		$('#myTasks').load("odswiez");
+		$('#ZleconeTasks').load("odswiez2");
+		
+	};
+		
+</script>
+
+
     <!-- jumbotron -->
 
 	<div class="jumbotron">
@@ -22,29 +81,36 @@
                 {% if user.is_authenticated %}
                 <p style="font-weight: bold">Witaj {{ user.username }}!</p>
                 <p>Aby rozpocząć obliczanie liczby PI zdefiniuj liczbę punktów dla algorytmu MONTE CARLO i zleć zadanie do realizacji </p>
-                <p><em>Dla większej liczby punktór alogrytm będzie dokładniejszy, jednak czas obliczeń może się wydłużyć</em></p> 
+                <p>Dla większej liczby punktów alogrytm będzie dokładniejszy, jednak czas obliczeń może się wydłużyć</p> 
+               <p><em> Przykład wyliczonej liczby PI dla porównania: π ≈<strong> 3,14159 26535 89793 23846 26433 83279 50288 41971 69399 37510 58209 74944 59230 78164 06286 20899 86280 34825 34211 70679 82148 08651 32823 06647 09384 46095 50582 23172 53594 08128 48111 74502 84102 70193 85211 05559 64462 29489 54930 38196...</strong></em></p>
                 {% else %}
                 <p>Aktualnie jesteś niezalogowany. Aby móc korzystać z serwisu musisz się zalogować, bądź zarejestrować.</p>
                 {% endif %}
             </div>
             {% if user.is_authenticated %}
+                   
              <div class="page-header" id="newTask">
                 <h2>Nowe zadanie</h2>
               <!-- Korzystanie przy formularzach z konkretnych znacznikow aby dodac nazwe wlasna -->
-       			<form id='form' method="post" class="post-form">{% csrf_token %} 
+       			<form id="form" method="post" class="post-form">{% csrf_token %} 
                 <p>Podaj liczbę punktów: {% for field in form %} {{ field }} {% endfor %}</p>
-                 <input type="submit" name="submit" value="Zleć do realizacji" class="btn btn-info navbar-btn navbar-center"/>
-                </form> 
+                 <input id="submit" type="submit"  name="submit" value="Zleć do realizacji" class="btn btn-info navbar-btn navbar-center"/>
+               	 {% if user.id == 1 %} 
+                  	<button type="button" id="czysc" class="btn btn-info navbar-btn navbar-center"/> Wyczyść baze danych </button>
+            	  {% endif %}
+                </form>
+
+                
+            	
             </div>
             <div class="page-header" id="myTasks">
-                <h2>Historia zadań</h2>
-                   {% for form2 in form2 %}
-    			<div>
-        			<p>Obliczono w dniu: {{ form2.add_date }} -- Zadana ilość punktów: {{ form2.numberOfPoints }} -- Wynik: {{ form2.value}}
-    			</div>
-				{% endfor %}
+              
 				
-            </div>         
+            </div>      
+            <div class="page-header" id="ZleconeTasks">
+              
+				
+            </div>        
            
             {% endif %}
         </section>
