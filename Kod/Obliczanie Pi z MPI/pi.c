@@ -35,6 +35,9 @@ int	taskid,	        /* task ID - also used as seed number */
 	i;
 MPI_Status status;
 
+    printf("****PARAMETR %s\n", argv[1]);
+    sleep(5);
+    
 /* Obtain number of tasks and task ID */
 MPI_Init(&argc,&argv);
 MPI_Comm_size(MPI_COMM_WORLD,&numtasks);
