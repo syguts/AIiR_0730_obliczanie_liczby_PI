@@ -2,6 +2,6 @@
 database = django_db
 user = root
 password = root
-bind-address = 192.168.1.103
+bind-address = 192.168.1.102
 port = 8080
 default-character-set = utf8

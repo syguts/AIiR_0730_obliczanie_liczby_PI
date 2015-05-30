@@ -10,7 +10,6 @@ class Task(models.Model):
     userID = models.ForeignKey('auth.User')
     #Jest narazie z zakresu integera
     numberOfPoints = models.IntegerField(default=0)
-    numberOfThreads = models.IntegerField(default=1)
     add_date = models.DateTimeField(default=timezone.now)
     
     
