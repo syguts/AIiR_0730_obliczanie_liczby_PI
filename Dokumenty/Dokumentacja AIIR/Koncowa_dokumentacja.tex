@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Projekt: AIiR																		%
+% Semestr VI																			%
+% Data: Marzec / Czerwiec 2015															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+% PREAMBUŁA: PAKIETY I KONFIGURACJA DOKUMENTU
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{article}		% klasa dokumentu i rozmiar czcionki
+\usepackage[utf8]{inputenc}					% kodowanie uniwersalne
+\usepackage[margin=2.5cm]{geometry}			% określa wielkość marginesów
+\usepackage{polski}							% polski pakiet językowy
+\usepackage{fancyhdr}						% nagłówek i stopka
+\usepackage{lastpage}						% potrzebny fancyhdr do numerowania
+\usepackage{extramarks}						% potrzebny fancyhdr
+\usepackage{amsmath}						% wzory matematyczne
+\usepackage{relsize}						% zmiana wielkości wzorów matematycznych
+\usepackage{booktabs}						% do tabel
+\usepackage{multirow}						% do łączenia wierszy w tabeli
+\usepackage{multicol}						% do łączenia kolumn w tabeli
+\usepackage{placeins}						% do stawiania "barier" tabeli
+\usepackage{graphicx}						% załączanie obrazów
+\usepackage{caption}						% zarządzanie podpisami pod floatami
+\usepackage{gensymb}						% znaki specjalne
+\usepackage[parfill]{parskip}				% dodaje pustą linię między paragrafami
+\usepackage{hyperref}						% links
+\usepackage{url}							% generowanie linków ze znakami specjalnymi
+\usepackage{pdflscape}						% zmiana orientacji strony
+\usepackage{indentfirst}					% dodanie pierwszego wcięcia w tekście
+\usepackage{listings}
+%----------------------------------------------------------------------------------------
+% PREAMBUŁA: DEFINICJE KOMED DLA NAGŁÓWKA I STOPKI
+%----------------------------------------------------------------------------------------
+
+\newcommand{\AuthorName}{Sternik,Cichuta,Cebula,Sygut}
+\newcommand{\Title}{Obliczanie przybliżenia liczby Pi.}
+\newcommand{\UnderTitle}{Dokumentacja końcowa}
+\newcommand{\University}{Politechnika Wrocławska}
+\newcommand{\Class}{Aplikacje Internetowe i Rozproszone}
+\newcommand{\ClassDay}{Środa}
+\newcommand{\ClassTime}{07:30}
+\newcommand{\ClassInstructor}{dr inż.~Marek Woda}
+
+%----------------------------------------------------------------------------------------
+% PREAMBUŁA: DEFINICJE KOMEND
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\baselinestretch}{1.20}				% wielkość odstępu między wierszami
+\renewcommand\headrulewidth{0.4pt}					% wielkość nagłówka
+\renewcommand\footrulewidth{0.4pt}					% wielkość stopki
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}		% szerokość poziomego paska
+
+%----------------------------------------------------------------------------------------
+% PREAMBUŁA: USTAWIENIA NAGŁÓWKA I STOPKI
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy}										% styl strony stosujący fancyhdr
+\lhead{Obliczanie liczby Pi}							% górny-lewy
+\rhead{\Class}											% górny-prawy
+\rfoot{Strona\ \thepage\ z\ \protect\pageref{LastPage}}	% dolny-prawy
+
+%----------------------------------------------------------------------------------------
+% PREAMBUŁA: INNE USTAWIENIA
+%----------------------------------------------------------------------------------------
+
+\setlength{\parindent}{1cm} 							% szerokość wcięć w paragrafach
+
+%----------------------------------------------------------------------------------------
+% PDF META INFO
+%----------------------------------------------------------------------------------------
+
+\pdfinfo
+{
+	/Author (\AuthorName)
+	/Title (\Class \Title)
+	/CreationDate (\today)
+	/Subject (\Class)
+	/Keywords (\Class, \Title, LaTeX)
+}
+
+%----------------------------------------------------------------------------------------
+% STRONA TYTUŁOWA: SEKCJA NAGŁÓWKA
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\begin{titlepage}
+\hfill Wrocław, dn. 10 czerwca 2015r.\\
+\center
+\textsc{}\\[1.5cm]
+\textsc{\LARGE \University}\\[1.5cm]
+\textsc{\Large \Class}\\[1.5cm]
+
+%----------------------------------------------------------------------------------------
+% STRONA TYTUŁOWA: SEKCJA TYTUŁU
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.7cm]
+{ \huge \bfseries \Title}\\[0.4cm]
+\textsc{\large \UnderTitle}\\[0.5cm]
+\HRule \\[1.0cm]
+
+%----------------------------------------------------------------------------------------
+% STRONA TYTUŁOWA: SEKCJA AUTORA
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} \large
+\emph{Grupa projektowa:}
+\\ Paweł \textsc{Sternik}, 200623
+\\ Kamil \textsc{Cichuta}, ???
+\\ Mariusz \textsc{Cebula}, ???
+\\ Sławomir \textsc{Sygut}, ???
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Prowadzący:}
+\\ dr inż.~Marek \textsc{Woda}
+\end{flushright}
+\end{minipage}\\[3cm]
+
+%----------------------------------------------------------------------------------------
+% STRONA TYTUŁOWA: SEKCJA DATY
+%----------------------------------------------------------------------------------------
+
+\emph{Termin spotkań:}\\[0.35cm]
+{\large \ClassDay, godz. \ClassTime}\\[0.5cm]
+\vfill
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+% SPIS TREŚCI
+%----------------------------------------------------------------------------------------
+
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+% DOKUMENT: SEKCJA
+%----------------------------------------------------------------------------------------
+
+\section{Temat projektu.}
+\section{Cel projektu.}
+\subsection{Cel dydaktyczny.}
+\subsection{Cel merytoryczny.}
+\section{Opis zastosowanego algorytmu.}
+\section{Zastosowane technologie.}
+\subsection{Framework Django.}
+\subsection{Technologia MPI.}
+\subsection{CSS i HTML.}
+\subsection{Komunikacja grupy.}
+\subsubsection{GitHub.}
+\subsubsection{Trello.}
+\section{Plan realizacji.}
+\subsection{Podział pracy między członków grupy.}
+\subsection{Terminarz realizacji zadań.}
+\section{Implementacja silnika obliczeniowego.}
+\section{Aplikacja internetowa.}
+\section{Testy.}
+\section{Podsumowanie i wnioski.}
+
+\end{document}
