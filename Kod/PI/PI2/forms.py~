@@ -20,10 +20,11 @@ class UserProfileForm(forms.ModelForm):
 class CommisionTask(forms.ModelForm):
     
     numberOfPoints = forms.IntegerField(label ="")
+    numberOfThreads = forms.IntegerField(label ="")
 
     class Meta:
         model = Task
-        fields = ('numberOfPoints', ) 
+        fields = ('numberOfPoints', 'numberOfThreads' ) 
         
   
         

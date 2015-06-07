@@ -93,7 +93,22 @@ $(document).ready( function(){
                 <h2>Nowe zadanie</h2>
               <!-- Korzystanie przy formularzach z konkretnych znacznikow aby dodac nazwe wlasna -->
        			<form id="form" method="post" class="post-form">{% csrf_token %} 
-                <p>Podaj liczbę punktów: {% for field in form %} {{ field }} {{ field2 }} {% endfor %}</p>
+        		<div class="row">
+                	<div class="col-sm-3"> 
+                		Podaj liczbę punktów: 
+                	</div>
+                	<div class="col-sm-3">
+                		{{ form.numberOfPoints}} 
+                	</div>
+                </div> 
+                <div class="row">
+                	<div class="col-sm-3">
+                		Podaj liczbę watków:
+                	</div>
+                	<div class="col-sm-3">
+                		{{ form.numberOfThreads}} 
+                	</div>
+                </div>
                  <input id="submit" type="submit"  name="submit" value="Zleć do realizacji" class="btn btn-info navbar-btn navbar-center"/>              
                	 {% if user.id == 1 %} 
                   	<button type="button" id="czysc" class="btn btn-info navbar-btn navbar-center"/> Wyczyść baze danych </button>
