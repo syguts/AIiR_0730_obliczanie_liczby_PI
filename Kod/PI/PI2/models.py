@@ -8,16 +8,14 @@ from django.utils import timezone
 #klasa dla Histori zadan
 class Task(models.Model):
     userID = models.ForeignKey('auth.User')
-    #Jest narazie z zakresu integera
-    numberOfPoints = models.IntegerField(default=0)
+    numberOfPoints = models.BigIntegerField(default=0)
     numberOfThreads = models.IntegerField(default=1)
     add_date = models.DateTimeField(default=timezone.now)
     
     
 class DoneTask(models.Model):
     userID = models.ForeignKey('auth.User')
-    #Jest narazie z zakresu integera
-    numberOfPoints = models.IntegerField(default=0)
+    numberOfPoints = models.BigIntegerField(default=0)
     add_date = models.DateTimeField(default=timezone.now)
     value = models.TextField();
     
