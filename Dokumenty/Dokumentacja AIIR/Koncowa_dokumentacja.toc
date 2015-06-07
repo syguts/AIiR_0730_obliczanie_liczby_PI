@@ -6,17 +6,17 @@
 \contentsline {subsection}{\numberline {3.1}Opis s\IeC {\l }owny algorytmu.}{3}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Obliczanie liczby Pi metod\IeC {\k a} Monte Carlo.}{3}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Implementacja algorytmu - program jednow\IeC {\k a}tkowy.}{5}{subsection.3.3}
-\contentsline {section}{\numberline {4}Zastosowane technologie.}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Framework Django.}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Technologia MPI.}{8}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}CSS i HTML.}{8}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Komunikacja grupy.}{8}{subsection.4.4}
+\contentsline {section}{\numberline {4}Zastosowane technologie.}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Framework Django.}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Technologia MPI.}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}CSS i HTML.}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Komunikacja grupy.}{7}{subsection.4.4}
 \contentsline {subsubsection}{\numberline {4.4.1}GitHub.}{8}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Trello.}{8}{subsubsection.4.4.2}
-\contentsline {section}{\numberline {5}Plan realizacji.}{8}{section.5}
-\contentsline {subsection}{\numberline {5.1}Podzia\IeC {\l } pracy mi\IeC {\k e}dzy cz\IeC {\l }onk\IeC {\'o}w grupy.}{8}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Terminarz realizacji zada\IeC {\'n}.}{8}{subsection.5.2}
-\contentsline {section}{\numberline {6}Implementacja silnika obliczeniowego.}{8}{section.6}
-\contentsline {section}{\numberline {7}Aplikacja internetowa.}{8}{section.7}
-\contentsline {section}{\numberline {8}Testy.}{8}{section.8}
-\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{8}{section.9}
+\contentsline {subsubsection}{\numberline {4.4.2}Trello.}{10}{subsubsection.4.4.2}
+\contentsline {section}{\numberline {5}Plan realizacji.}{11}{section.5}
+\contentsline {subsection}{\numberline {5.1}Podzia\IeC {\l } pracy mi\IeC {\k e}dzy cz\IeC {\l }onk\IeC {\'o}w grupy.}{11}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Terminarz realizacji zada\IeC {\'n}.}{11}{subsection.5.2}
+\contentsline {section}{\numberline {6}Implementacja silnika obliczeniowego.}{11}{section.6}
+\contentsline {section}{\numberline {7}Aplikacja internetowa.}{11}{section.7}
+\contentsline {section}{\numberline {8}Testy.}{11}{section.8}
+\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{11}{section.9}

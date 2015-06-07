@@ -205,14 +205,14 @@ Pole kwadratu przedstawionego na Rysunku 1 wynosi:
 \[ \frac{PoleKola}{PoleKwadratu}=\frac{\prod r^{2}}{4r^{2} }= \frac{\prod}{4}\]
 Następnie korzystając z tego, że pole koła jak i kwadratu zostały w jakiś sposób obliczone można wyciągnąć wzór na liczbę Pi:
 \[\prod =4\frac{PoleKola}{PoleKwadratu}\]
-Dojście do tego punktu mogłoby się wydawać zatoczeniem koła i powrotem do punktu początkowego problemu. Tak nie jest. Ponieważ dopiero w tym miejscu pojawia się cała charakterystyka metody Monte Carlo. Abstrakcyjnie należy sobię teraz wyobraźić sytuację, w której rzucamy bardzo dużo razy rzutkami w tarczę wyglądająca jak Rysunek 1. Kończąc grę, plansza będzie pokryta rzutkami znajdującymi sie we wnętrzu koła jak i poza nim na obszarze kwadratu. Podsumowując liczba rzutek w i poza kołem będzie równy stosunkowi pola koła do pola kwadratu.
+Dojście do tego punktu mogłoby się wydawać zatoczeniem koła i powrotem do punktu początkowego problemu. Tak nie jest. Ponieważ dopiero w tym miejscu pojawia się cała charakterystyka metody Monte Carlo. Abstrakcyjnie należy sobię teraz wyobraźić sytuację, w której rzucamy bardzo dużo razy rzutkami w tarczę wyglądająca jak Rysunek 1. Kończąc grę, plansza będzie pokryta rzutkami znajdującymi sie we wnętrzu koła jak i poza nim na obszarze kwadratu. Podsumowując liczba rzutek w i poza kołem będzie równa stosunkowi pola koła do pola kwadratu.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.7]{Resources/Losowanie.png}
 \caption{Przykład losowania punktów.}
 \end{figure}
  Formalnie losowanie będzie odbywać się pośród punktów należących do zbioru pokrytego współrzędnymi należacymi do predziału [-2r,2r]. Stosunek liczby punktów
-zawierających się w kole o środku w punkcie <0,0> i promieniu r do wszystkich wylosowanych punktów będzie dążył w nieskończoności (z pewnym prawdopodobieństwem) do stosunku tego pola koła do koła kwadratu o boku 2r. Co więcej, stosunek ten będzie identyczny również do ćwiartki koła. Jeżeli pole koła podzielimy na cztery i tak samo podzielimy pole kwadratu, to ich stosunek będzie wciąż taki sam. Oznacza to, że wystarczy, jeżeli będziemy losowali punkty o współrzędnych od 0 do r. Cała metoda sprowadza się więc do tego, by losować punkty, sprawdzać, czy mieszczą się w kole, i następnie podstawiać liczby wylosowanych punktów do wzoru. Losując odpowiednio dużo punktów, powinniśmy otrzymać z pewnym prawdopodobieństwem rozsądne przybliżenie liczby Pi.
+zawierających się w kole o środku w punkcie [0,0] i promieniu r do wszystkich wylosowanych punktów będzie dążył w nieskończoności (z pewnym prawdopodobieństwem) do stosunku tego pola koła do koła kwadratu o boku 2r. Co więcej, stosunek ten będzie identyczny również do ćwiartki koła. Jeżeli pole koła podzielimy na cztery i tak samo podzielimy pole kwadratu, to ich stosunek będzie wciąż taki sam. Oznacza to, że wystarczy, jeżeli będziemy losowali punkty o współrzędnych od 0 do r. Cała metoda sprowadza się więc do tego, by losować punkty, sprawdzać, czy mieszczą się w kole, i następnie podstawiać liczby wylosowanych punktów do wzoru. Losując odpowiednio dużo punktów, powinniśmy otrzymać z pewnym prawdopodobieństwem rozsądne przybliżenie liczby Pi.
 \subsection{Implementacja algorytmu - program jednowątkowy.} 
 Dla lepszego zrozumienia działania algorytmu i sprawdzenia jego rezultatów stworzony został program w języku C++ obliczający przybliżenie liczby Pi wykonujący wszystkie obliczenia szeregowo, czyli po prostu korzystający z jednego wątku. Program przyjmuje od użytkownika zadaną liczbę punktów. W rezultacie wyświetla obliczoną liczbę Pi oraz orginalne rozwinięcie.
 \lstinputlisting[language=C++]{Code/obliczanie_pi.cpp}
@@ -227,8 +227,57 @@ Jak widać na zamieszczonym zdjęciu ekranu program jednowątkowy obliczający r
 \subsection{Technologia MPI.}
 \subsection{CSS i HTML.}
 \subsection{Komunikacja grupy.}
+Podczas realizacji projektu wykorzystane zostały narzędzia ułatwiające pracę w grupie. Stworzone zostało repozytorium, w którym umieszczane były kody źródłowe programu obliczającego liczbę Pi czy też apliakcji internetowej napisanej w frameworku Django. Ponadto na portalu Trello istniała tablica na której zamieszczane były zadania do zrealizowania. Umożliwiło to jasny podział zadań oraz bez problemową serializację efektów pracy niwelując liczbę konfliktów podczas równoległego tworzenia kodu przez różne osoby. Podczas realizacji projektu każdy członków z grupy dzięki dobrze zoorganizowanej tablicy Trello znał swoje zadania oraz terminy realizacji, które stanowiły motywację do pracy.
 \subsubsection{GitHub.}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{Resources/GitHub_Logo.jpg}
+\caption{Logo portalu GitHub.} 
+\end{figure}
+GitHub to serwis internetowy wykorzystywany masowo przy projektach programistycznych, korzystający z systemu kontroli wersji Git. Stworzony został już w 2008 roku przy wykorzystaniu języków Ruby on Rails oraz Erlang. Dzisiaj serwis obsługuje już kilka milionów repozytoriów, a wśród nich darmowe publiczne repozytoria oraz płatne prywatne. Darmowe repozytoria utrzymywane są na licencji open source. Podczas realizacji projektu został stworzony bardzo prosty tutorial korzystania z Git'a z poziomu konsoli poleceń. Tutorial opisuje korzystanie z podstawowych funkcjonalności systemu kontroli wersji , wyłączając bardziej zaawansowane techniki branch'owania i merge'owania projektów.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Resources/Git_Logo.jpg}
+\caption{Logo systemu kontroli wersji- Git.} 
+\end{figure} 
+Instrukcja do skonfigurowania i uruchomienia repozytorium opartego o system kontroli wersji Git na systemie Linux:
+\begin{enumerate}
+\item Instalacja najnowszej wersji gita za pomocą komendy:\\
+\textbf{sudo apt-get install git}
+\item Drugi krok to ustawienie globalnych danych konta założonego na stronie GitHub:\\
+\textbf{sudo git config --global user.name "nazwaKonta" }
+\item Następnie podajemy analogicznie maila na którego mamy zalożone konto na GitHub:\\
+\textbf{sudo git config --global user.email "email"}
+\item Przed tym krokiem zostały już skonfigurowane dane konta.  Teraz należy je potwierdzić i polączyć się z interesującym nas repozytorium. Do nawiązania połączenia wykorzystywane są dwa sposoby : protokół HTTPS lub SSH. Tym razem wykorzystany będzie protokół HTTPS.
+\item Prawdopodobnie po skonfigurowaniu danych konta Git pobierze automatycznie repozytoria, do których dane konto miało dostęp i umieści je w folderze Dokumenty.
+\item W innym przypadku należy skopiować adres repozytorium ze strony portalu. Przykładowo:\\
+\textbf{https://github.com/syguts/AIiR0730obliczanieliczbyPI.git}
+\item Nawiązanie połączenia poprzez komendę:\\
+\textbf{git clone https://github.com/syguts/AIiR0730obliczanieliczbyPI.git AIIR}
+Gdzie "AIIR" to nazwa folderu, do którego zostanie pobrane repozytorium (wersja lokalna).
+\end{enumerate}
+Natomiast same edytowanie repozytorium sprowadza się do sekwencji:\\
+\begin{enumerate}
+\item \textbf{git fetch} - funkcja sprawdza wersje zdalnego repozytorium (jeżeli zdalna wersja jest identyczna co do lokalnej wówczas wyświetlany jest stosowny komunikat)
+\item \textbf{git log} - metoda wyświetla listę wprowadzonych zmian
+\item \textbf{git pull} - pobranie wprowadzonych zmian - zaaktualizowanie lokalnego repozytorium.
+\item \textbf{git add} -  w przypadku dodania plików należy podłączyć je pod system kontroli wersji metodą git add nazwaPlikuFolderu
+\item \textbf{git status} - metoda listująca zmiany wprowadzone przez użytkownika w wersji lokalnej od ostatniej aktualizacji
+\item \textbf{git commit} - stworzenie commita zbierającego wprowadzone zmiany
+\item \textbf{git push} - wypchanie wprowadzonych zmian na zewnątrz lokalnego repo, czyli dodanie do zdalnego repozytorium.  
+\end{enumerate}
 \subsubsection{Trello.}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{Resources/Trello_Logo.png}
+\caption{Logo portalu Trello.} 
+\end{figure} 
+Trello to aplikacja do zarządzania zadaniami. Opiera się ona na paradygmacie Kanban stworzonym w Japoni, w firmie Toyota, należącym do technik Agile. Trello to także produkt horyzontalny. Co to znaczy?. Oznacza to, że nie jest to produkt skierowany konkretnie do jednej grupy odbiorców, a wszystkich, którzy potrzebują danego narzędzia oraz chcących skorzystać z jego funkcji. Projekty w Trello zbudowane są w oparciu o tablice, na których to znajdują się listy zadań. Listy te pozwalają tworzyć karty (zadania), które w bardzo prosty sposób możemy sortować, czy przenosić pomiędzy różnymi listami za pomocą techniki drag-and-drop. Poszczególni użytkownicy mogą być przypisywani do kart oraz budować grupy, a grupy i konkretne projekty tworzą organizacje.Bardzo przydatną funkcjonalnością Trello są także powiadomienia, które spływają w formie wiadomości na adres email lub powiadomień (push) na urządzenia mobilne. Każdy użytkownik ma oczywiście kontrolę nad nimi oraz ich częstotliwością. Dzięki powiadomieniom można być informowanym o dyskusjach, w których pojawia się nazwa użytkownika, obserwowanych projektach, lub aktywnościach innych użytkowników. W ten sposób komunikacja następuje w błyskawicznym tempie.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.2]{Resources/Trello_Zrzut.png}
+\caption{Przykłądowy widok tablicy na portalu Trello.} 
+\end{figure} 
 \section{Plan realizacji.}
 \subsection{Podział pracy między członków grupy.}
 \subsection{Terminarz realizacji zadań.}
