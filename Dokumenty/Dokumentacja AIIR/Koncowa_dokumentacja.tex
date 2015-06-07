@@ -31,6 +31,7 @@
 \usepackage{indentfirst}					% dodanie pierwszego wcięcia w tekście
 \usepackage{listings}
 \usepackage{color}
+\usepackage{array}
  
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -172,64 +173,86 @@
 
 \section{Temat projektu.}
 Tematem projektu realizowanego w ramach kursu Aplikacje Internetowe i Rozproszone było wyznaczanie rozszerzenia liczby Pi z wykorzystaniem algorytmu Monte Carlo. Realizacja wymagała implementacji kilku modułów stanowiących cały system.
+
 \section{Cel projektu.}
+
 \subsection{Cel dydaktyczny.}
 Głównym celem dydaktycznym kursu było zapoznanie się z technologiami wykorzystywanymi do tworzenia rozproszonych aplikacji połączonych z internetowymi klientami. Ponadto kurs wymagał zoorganizowania pracy w grupach kilkuosobowych co wymuszało zaplanowanie kolejnych etapów pracy i podział poszczególnych zadań między członków grupy. Wykorzystane zostały do tego odpowiednie narzędzia komunikacji, które zostaną opisane dokładniej w dalszej częsci dokumentu. 
+
 \subsection{Cel merytoryczny.}
 Implementacja algorytmu Monte Carlo obliczającego rozszerzenie liczby Pi z wykorzystaniem technologi MPI (ang. Message Passing Interface ) czyli protokołu komunikacyjnego służącego do przesyłania komunikatów pomiędzy procesami programów równoległych. Ponadtwo stworzenie aplikacji internetowej która poprzez stworzoną bazę dancyh łączy się z silnikiem obliczeniowym działającym na kilku niezależnych komputerach. Strona powinna posiadać elementy zmieniające się dynamicznie podczas realizacji zadania - przykładowo pasek postępu. 
 \newpage
+
 \section{Opis zastosowanego algorytmu.}
+
 \subsection{Opis słowny algorytmu.}
-Metoda Monte Carlo stosowana jest do problemów, które jest bardzo trudno rozwiązać za pomocą podejścia analitycznego. Najczęściej stosuje się ją do modelowania złożonych problemów takich jak: 
+Metoda Monte Carlo stosowana jest do problemów, które jest bardzo trudno rozwiązać za pomocą podejścia analitycznego. Najczęściej stosuje się ją do modelowania złożonych problemów takich jak:
+ 
 \begin{enumerate}
 \item Obliczanie całek.
 \item Obliczanie łańcuchów procesów statystycznych .
 \item Obliczanie złożonych symulacji.
 \end{enumerate}
+
 Metoda opiera się na losowaniu nazywanym w tym przypadku wyborem przypadkowym. Losowanie dokonywane jest zgodnie z rozkładem, który jest znany. Przykładowo całkowanie metodą Monte-Carlo działa na zasadzie porównywania losowych próbek z wartością funkcji. Dokładność wyniku uzyskanego tą metodą jest zależna od liczby sprawdzeń i jakości użytego generatora liczb pseudolosowych. Zwiększanie liczby prób nie zawsze zwiększa dokładność wyniku, ponieważ generator liczb pseudolosowych ma skończenie wiele liczb losowych w cyklu. Przykładowo całkowanie tą metodą jest używane w przypadkach, kiedy szybkość otrzymania wyniku jest ważniejsza od jego dokładności (np. obliczenia inżynierskie).\\
 
 W projekcie algorytm Monte Carlo zostanie wykorzystany do obliczenia rozszerzenia dziesiętnego liczby Pi. Dokładny opis realizacji tego algorytmu znajduję się w następnym punkcie.
+
 \subsection{Obliczanie liczby Pi metodą Monte Carlo.} 
 Liczbę Pi można obliczać na wiele różnych sposobów. Jednym z nich jest wykorzystanie metody Monte Carlo. Metoda ta charakteryzuję się przede wszystkim swoją stosunkową prostą procedurą jak i przystosowaniem do zaimplementowania mechanizmów zrównoleglenia - co jest jednym z głównych celów projektu.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Resources/Kolo_rysunek.png}
 \caption{Koło o promieniu r wpisane w kwadrat - bok 2r.}
 \end{figure}
+
 Pole kwadratu przedstawionego na Rysunku 1 wynosi:
  \[(4\prod)^{2}\]
  natomiast koła oczywiście:
  \[(\prod)r^{2}\]
  \newpage
+ 
  Znając zatem pole koła jak i kwadratu można zauważyć że stosunek pola koła do pola kwadratu wynosi:
 \[ \frac{PoleKola}{PoleKwadratu}=\frac{\prod r^{2}}{4r^{2} }= \frac{\prod}{4}\]
 Następnie korzystając z tego, że pole koła jak i kwadratu zostały w jakiś sposób obliczone można wyciągnąć wzór na liczbę Pi:
 \[\prod =4\frac{PoleKola}{PoleKwadratu}\]
 Dojście do tego punktu mogłoby się wydawać zatoczeniem koła i powrotem do punktu początkowego problemu. Tak nie jest. Ponieważ dopiero w tym miejscu pojawia się cała charakterystyka metody Monte Carlo. Abstrakcyjnie należy sobię teraz wyobraźić sytuację, w której rzucamy bardzo dużo razy rzutkami w tarczę wyglądająca jak Rysunek 1. Kończąc grę, plansza będzie pokryta rzutkami znajdującymi sie we wnętrzu koła jak i poza nim na obszarze kwadratu. Podsumowując liczba rzutek w i poza kołem będzie równa stosunkowi pola koła do pola kwadratu.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.7]{Resources/Losowanie.png}
 \caption{Przykład losowania punktów.}
 \end{figure}
+
  Formalnie losowanie będzie odbywać się pośród punktów należących do zbioru pokrytego współrzędnymi należacymi do predziału [-2r,2r]. Stosunek liczby punktów
 zawierających się w kole o środku w punkcie [0,0] i promieniu r do wszystkich wylosowanych punktów będzie dążył w nieskończoności (z pewnym prawdopodobieństwem) do stosunku tego pola koła do koła kwadratu o boku 2r. Co więcej, stosunek ten będzie identyczny również do ćwiartki koła. Jeżeli pole koła podzielimy na cztery i tak samo podzielimy pole kwadratu, to ich stosunek będzie wciąż taki sam. Oznacza to, że wystarczy, jeżeli będziemy losowali punkty o współrzędnych od 0 do r. Cała metoda sprowadza się więc do tego, by losować punkty, sprawdzać, czy mieszczą się w kole, i następnie podstawiać liczby wylosowanych punktów do wzoru. Losując odpowiednio dużo punktów, powinniśmy otrzymać z pewnym prawdopodobieństwem rozsądne przybliżenie liczby Pi.
+
 \subsection{Implementacja algorytmu - program jednowątkowy.} 
 Dla lepszego zrozumienia działania algorytmu i sprawdzenia jego rezultatów stworzony został program w języku C++ obliczający przybliżenie liczby Pi wykonujący wszystkie obliczenia szeregowo, czyli po prostu korzystający z jednego wątku. Program przyjmuje od użytkownika zadaną liczbę punktów. W rezultacie wyświetla obliczoną liczbę Pi oraz orginalne rozwinięcie.
+
 \lstinputlisting[language=C++]{Code/obliczanie_pi.cpp}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Resources/Screen_Program_JedenWatek}
 \caption{Przykład działania programu jednowątkowego.} 
 \end{figure}
+
 Jak widać na zamieszczonym zdjęciu ekranu program jednowątkowy obliczający rozwinięcie dziesiętne liczby Pi korzystając z metody Monte Carlo obliczył liczbę Pi równą 3.14215. Otrzymana dokładność sięga jedynie dwóch miejsc po przecinku przy stosunkowo już dużej ilości losowanych punktów - 10 mln. Program wyświetlił informację o tym, że 7855365 punktów znalazło się w kole.
+
 \section{Zastosowane technologie.}
+
 \subsection{Framework Django.}
+
 \subsubsection{Opis.}
 Django – wysokopoziomowy, opensource’owy framework przeznaczony do tworzenia aplikacji internetowych, napisany w Pythonie. Powstał pod koniec 2003 roku jako ewolucyjne rozwinięcie aplikacji internetowych, tworzonych przez grupę programistów związanych z Lawrence Journal-World. Nazwa frameworku pochodzi od imienia gitarzysty Django Reinhardta.
 Framework wymaga instalacji interpretera Pythona. W ramach projektu wykorzystany został Python 2.7.6, instalacja jednak nie była konieczna, ponieważ w systemie Linux był wgrany domyślnie.
+
 \subsubsection{Instalacja Django.}
 W projekcie zostało użyte Django w wersji 1.7.5, jednak od 01.04.2015 dostępna jest już wersja 1.8 LTS:\\
 \textbf{pip install Django==1.7.5}
+
 \subsubsection{Tworzenie nowego projektu.}
 W linii poleceń należy przejść do katalogu, w którym będzie znajdował się kod, następnie wpisując:\\
 \textbf{django-admin.py startproject PI}\\
@@ -239,24 +262,29 @@ init.py\\
 manage.py\\
 settings.py\\
 urls.py
+
 \begin{itemize}
 \item \textbf{init.py: }Pusty plik informujący Pythona o tym, że katalog nadrzędny powinien być traktowany jako pakiet Pythona 
 \item \textbf{manage.py: }Działające z linii poleceń narzędzie, które pozwala na interakcję z projektem Django na różne sposoby.
 \item \textbf{settings.py}Ustawienia/konfiguracja dla tego projektu Django.
 \item \textbf{urls.py}Deklaracja adresów URL dla tego projektu Django; “mapa serwisu” Twojej strony zbudowanej w oparciu o Django.
 \end{itemize}
+
 Przechodząc do katalogu PI, można sprawdzić czy server deweloperski działa, w tym celu należy wpisać:\\
 \textbf{python manage.py runserver}
+
 \subsubsection{Ustawienia bazy danych.}
 Django można używać bez bazy danych, jednak dostarczony jest wraz z systemem ORM (odwzorowanie relacyjno-obiektowe), za pomocą, którego można definiować tabele w bazie danych oraz pracować na nich pisząc i operując na klasach w Pythonie. Django współpracuje z następującymi serwerami bazodanowymi: PostgreSQL, MySQL, Oracle i SQLite. Ze względu na łatwość obsługi wybrany został MySQL, przez co należało doinstalować MySQLdb:\\
 \textbf{sudo apt-get install python2.7-mysqldb}\\
 Co wymagało również zmiany silnika bazy danych w ustawieniach aplikacji na „django.db.backends.mysql” oraz z wnętrza powłoki bazy danych utworzenia 
 potrzebnej bazy danych. Ze względu, że w pliku settings.py INSTALLEDAPPS zawarte są domyślne aplikacje, należy użyć komendy:\\
 \textbf{python manage.py syncdb, która dla w/w aplikacji tworzy tabele w bazie.}
+
 \subsubsection{Tworzenie modeli.}
 W katalogu PI, aby zacząć pracę nad projektem należy wprowadzić następujące polecenie:\\
 \textbf{python manage.py startapp PI2}\\
 Co utworzy podkatalog PI2, w którym będzie się znajdować struktura docelowej aplikacji.
+
 \subsection{Technologia MPI.}
 MPI, czyli Message Passing Interface jest protokołem komunikacyjnym będącym standardem przesyłania komunikatów pomiędzy procesami programów równoległych działających na jednym, lub wielu komputerach. Ze względu na dominacje wykorzystywania tego modelu w klastrach komputerowych oraz superkomputerach, posłużył on jako główny protokół komunikacyjny w projekcie.
 MPI jest specyfikacją biblioteki funkcji opartych na modelu wymiany komunikatów dla potrzeb programowania równoległego. Transfer danych pomiędzy poszczególnymi procesami programu wykonywanymi na procesorach maszyn będących węzłami klastra odbywa się za pośrednictwem sieci. Opisany schemat działania ilustruje poniższy rysunek.
@@ -268,6 +296,7 @@ MPI jest specyfikacją biblioteki funkcji opartych na modelu wymiany komunikató
 \end{figure}
 
 Aby zapewnić sprawną komunikacją pomiędzy komputerem Master, a Slave’ami należy skonfigurować bez kluczowe połączenia. Do tego celu najlepszym rozwiązaniem jest użycie SSH, które umożliwi logowanie bez użycia hasła, wykorzystując do tego klucz publiczny, na przykład RSA. Podstawowy schemat działania wygląda następująco:
+
 \begin{itemize}
 \item \textbf{sudo apt-get install openssh-server} - instalacja serwera ssh na komputerze Master
 \item \textbf{sudo apt-get install openssh-client} - instalacja klientów na komputerach Slave
@@ -305,22 +334,30 @@ Jeśli wszystko przebiegło pomyślnie możliwe jest uruchomienie programu rozpr
 \begin{itemize}
 \item \textbf{mpirun –np liczbaProcesorow –hostfile nazwaHostfile /sciezka/pi.out}
 \end{itemize}
+
 \subsection{CSS i HTML.}
+
 \subsection{Komunikacja grupy.}
 Podczas realizacji projektu wykorzystane zostały narzędzia ułatwiające pracę w grupie. Stworzone zostało repozytorium, w którym umieszczane były kody źródłowe programu obliczającego liczbę Pi czy też apliakcji internetowej napisanej w frameworku Django. Ponadto na portalu Trello istniała tablica na której zamieszczane były zadania do zrealizowania. Umożliwiło to jasny podział zadań oraz bez problemową serializację efektów pracy niwelując liczbę konfliktów podczas równoległego tworzenia kodu przez różne osoby. Podczas realizacji projektu każdy członków z grupy dzięki dobrze zoorganizowanej tablicy Trello znał swoje zadania oraz terminy realizacji, które stanowiły motywację do pracy.
+
 \subsubsection{GitHub.}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Resources/GitHub_Logo.jpg}
 \caption{Logo portalu GitHub.} 
 \end{figure}
+
 GitHub to serwis internetowy wykorzystywany masowo przy projektach programistycznych, korzystający z systemu kontroli wersji Git. Stworzony został już w 2008 roku przy wykorzystaniu języków Ruby on Rails oraz Erlang. Dzisiaj serwis obsługuje już kilka milionów repozytoriów, a wśród nich darmowe publiczne repozytoria oraz płatne prywatne. Darmowe repozytoria utrzymywane są na licencji open source. Podczas realizacji projektu został stworzony bardzo prosty tutorial korzystania z Git'a z poziomu konsoli poleceń. Tutorial opisuje korzystanie z podstawowych funkcjonalności systemu kontroli wersji , wyłączając bardziej zaawansowane techniki branch'owania i merge'owania projektów.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{Resources/Git_Logo.jpg}
 \caption{Logo systemu kontroli wersji- Git.} 
 \end{figure} 
+
 Instrukcja do skonfigurowania i uruchomienia repozytorium opartego o system kontroli wersji Git na systemie Linux:
+
 \begin{enumerate}
 \item Instalacja najnowszej wersji gita za pomocą komendy:\\
 \textbf{sudo apt-get install git}
@@ -336,7 +373,8 @@ Instrukcja do skonfigurowania i uruchomienia repozytorium opartego o system kont
 \textbf{git clone https://github.com/syguts/AIiR0730obliczanieliczbyPI.git AIIR}
 Gdzie "AIIR" to nazwa folderu, do którego zostanie pobrane repozytorium (wersja lokalna).
 \end{enumerate}
-Natomiast same edytowanie repozytorium sprowadza się do sekwencji:\\
+
+Natomiast same edytowanie repozytorium sprowadza się do sekwencji:
 \begin{enumerate}
 \item \textbf{git fetch} - funkcja sprawdza wersje zdalnego repozytorium (jeżeli zdalna wersja jest identyczna co do lokalnej wówczas wyświetlany jest stosowny komunikat)
 \item \textbf{git log} - metoda wyświetla listę wprowadzonych zmian
@@ -344,24 +382,65 @@ Natomiast same edytowanie repozytorium sprowadza się do sekwencji:\\
 \item \textbf{git add} -  w przypadku dodania plików należy podłączyć je pod system kontroli wersji metodą git add nazwaPlikuFolderu
 \item \textbf{git status} - metoda listująca zmiany wprowadzone przez użytkownika w wersji lokalnej od ostatniej aktualizacji
 \item \textbf{git commit} - stworzenie commita zbierającego wprowadzone zmiany
-\item \textbf{git push} - wypchanie wprowadzonych zmian na zewnątrz lokalnego repo, czyli dodanie do zdalnego repozytorium.  
+\item \textbf{git push} - wypchanie wprowadzonych zmian na zewnątrz lokalnego repo, czyli dodanie do zdalnego repozytorium.
 \end{enumerate}
+
 \subsubsection{Trello.}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Resources/Trello_Logo.png}
 \caption{Logo portalu Trello.} 
 \end{figure} 
+
 Trello to aplikacja do zarządzania zadaniami. Opiera się ona na paradygmacie Kanban stworzonym w Japoni, w firmie Toyota, należącym do technik Agile. Trello to także produkt horyzontalny. Co to znaczy?. Oznacza to, że nie jest to produkt skierowany konkretnie do jednej grupy odbiorców, a wszystkich, którzy potrzebują danego narzędzia oraz chcących skorzystać z jego funkcji. Projekty w Trello zbudowane są w oparciu o tablice, na których to znajdują się listy zadań. Listy te pozwalają tworzyć karty (zadania), które w bardzo prosty sposób możemy sortować, czy przenosić pomiędzy różnymi listami za pomocą techniki drag-and-drop. Poszczególni użytkownicy mogą być przypisywani do kart oraz budować grupy, a grupy i konkretne projekty tworzą organizacje.Bardzo przydatną funkcjonalnością Trello są także powiadomienia, które spływają w formie wiadomości na adres email lub powiadomień (push) na urządzenia mobilne. Każdy użytkownik ma oczywiście kontrolę nad nimi oraz ich częstotliwością. Dzięki powiadomieniom można być informowanym o dyskusjach, w których pojawia się nazwa użytkownika, obserwowanych projektach, lub aktywnościach innych użytkowników. W ten sposób komunikacja następuje w błyskawicznym tempie.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.2]{Resources/Trello_Zrzut.png}
 \caption{Przykłądowy widok tablicy na portalu Trello.} 
 \end{figure} 
+
 \section{Plan realizacji.}
+
+\begin{enumerate}
+\item Dokładna analiza algorytmu matematycznego na obliczanie liczby pi - Monte Carlo.
+\item Zebranie informacji o metodach współbieżnych tego algorytmu lub też próba własnej implementacji.
+\item Podział pracy na dwa zespoły:\\
+Drużyna A - Cebula i Sternik:
+
+\begin{itemize}
+\item Implementacja algorytmu współbieżnego w języku C++
+\item Nauka i zapoznanie z technologią MPI
+\item Implementacj technologi MPI
+\item Testy połączenia miedzy komputerami
+\item Wykorzystanie w algorytmie współbieżnym
+\item Testy silnika obliczeniowego - liczba pi
+\end{itemize}
+
+Drużyna B - Sygut i Cichuta:
+
+\begin{itemize}
+\item Nauka tworzenia stron internetowych z wykorzystaniem HTML5 i CSS
+\item Zapoznanie z technologią frameworku Django
+\item Utworzenie konta administracyjnego i użytkowników
+\item Stworzenie strony internetowej
+\item Testy- dodawanie użytkowników, administracja, wygląd na różnych przeglądarkach, pobieranie danych z formularzy
+\item Postawienie aplikacji na serwerze i próba uruchomienia zdalnego
+\end{itemize}
+
+\item Połączenie silnika obliczeniowego z frontenedem i serwerem aplikacji.
+\item Testowanie całego systemu pod różnymi aspektami- zmienność parametrów wejściowych dla algorytmu , liczba użytkowników chcących skorzystać z silnika ( kolejkowanie dostępności), płynność działania, górne ograniczenie czasowe, wygląd i interfejs aplikacji.
+\item Tworzenie dokumentacji z podziałem prac według opracowanych obszarów systemu.
+\item Przygotowanie prezentacji końcowej przedstawiającej efekty pracy oraz wnioski. Podsumowanie całego semestru prac - trudności i problemy oraz ich rozwiązania.
+\end{enumerate}
+
 \section{Implementacja silnika obliczeniowego.}
+
 \section{Aplikacja internetowa.}
+
 \section{Testy.}
+
 \section{Podsumowanie i wnioski.}
 
 \end{document}

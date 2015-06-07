@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{\numberline {4.4.1}GitHub.}{11}{subsubsection.4.4.1}
 \contentsline {subsubsection}{\numberline {4.4.2}Trello.}{13}{subsubsection.4.4.2}
 \contentsline {section}{\numberline {5}Plan realizacji.}{14}{section.5}
-\contentsline {section}{\numberline {6}Implementacja silnika obliczeniowego.}{14}{section.6}
-\contentsline {section}{\numberline {7}Aplikacja internetowa.}{14}{section.7}
-\contentsline {section}{\numberline {8}Testy.}{14}{section.8}
-\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{14}{section.9}
+\contentsline {section}{\numberline {6}Implementacja silnika obliczeniowego.}{15}{section.6}
+\contentsline {section}{\numberline {7}Aplikacja internetowa.}{15}{section.7}
+\contentsline {section}{\numberline {8}Testy.}{15}{section.8}
+\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{15}{section.9}

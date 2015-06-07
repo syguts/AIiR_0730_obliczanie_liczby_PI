@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.9)  7 JUN 2015 20:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.9)  7 JUN 2015 23:28
 entering extended mode
 **Koncowa_dokumentacja.tex
 
@@ -689,24 +689,32 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen159
+\extrarowheight=\dimen160
+\NC@list=\toks25
+\extratabsurround=\skip58
+\backup@length=\skip59
+)
 ("D:\Repozytoria_ GitHub\AIiR_0730_obliczanie_liczby_PI\Dokumenty\Dokumentacja 
 AIIR\Koncowa_dokumentacja.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -748,39 +756,39 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 114.
+(lastpage)             ! on input line 115.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count135
-\scratchdimen=\dimen159
+\scratchdimen=\dimen161
 \scratchbox=\box56
 \nofMPsegments=\count136
 \nofMParguments=\count137
-\everyMPshowfont=\toks25
+\everyMPshowfont=\toks26
 \MPscratchCnt=\count138
-\MPscratchDim=\dimen160
+\MPscratchDim=\dimen162
 \MPnumerator=\count139
 \makeMPintoPDFobject=\count140
-\everyMPtoPDFconversion=\toks26
+\everyMPtoPDFconversion=\toks27
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \celsius on input line 114.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 114
+LaTeX Info: Redefining \celsius on input line 115.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 115
 .
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 114.
-Package gensymb Info: Using \Omega for \ohm on input line 114.
+LaTeX Info: Redefining \ohm on input line 115.
+Package gensymb Info: Using \Omega for \ohm on input line 115.
 
 Package gensymb Warning: Not defining \micro.
 
 \AtBeginShipoutBox=\box57
-Package hyperref Info: Link coloring OFF on input line 114.
+Package hyperref Info: Link coloring OFF on input line 115.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -789,9 +797,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count141
 )
-LaTeX Info: Redefining \ref on input line 114.
-LaTeX Info: Redefining \pageref on input line 114.
-LaTeX Info: Redefining \nameref on input line 114.
+LaTeX Info: Redefining \ref on input line 115.
+LaTeX Info: Redefining \pageref on input line 115.
+LaTeX Info: Redefining \nameref on input line 115.
 
 ("D:\Repozytoria_ GitHub\AIiR_0730_obliczanie_liczby_PI\Dokumenty\Dokumentacja 
 AIIR\Koncowa_dokumentacja.out")
@@ -800,33 +808,33 @@ AIIR\Koncowa_dokumentacja.out")
 \@outlinefile=\write3
 \c@lstlisting=\count142
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
-LaTeX Font Info:    Try loading font information for OML+plm on input line 143.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 144.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\polski\omlplm.fd"
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 143
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 144
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\polski\omsplsy.fd"
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 143
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 144
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\polski\omxplex.fd"
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 143.
+(Font)              <12> on input line 144.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 143.
+(Font)              <8> on input line 144.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 143.
+(Font)              <6> on input line 144.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
@@ -844,27 +852,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.167 \newpage
+l.168 \newpage
                [1] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
 
  []
 
-<Resources/Kolo_rysunek.png, id=158, 419.5675pt x 348.30125pt>
+<Resources/Kolo_rysunek.png, id=148, 419.5675pt x 348.30125pt>
 File: Resources/Kolo_rysunek.png Graphic file (type png)
 
 <use Resources/Kolo_rysunek.png>
-Package pdftex.def Info: Resources/Kolo_rysunek.png used on input line 196.
+Package pdftex.def Info: Resources/Kolo_rysunek.png used on input line 206.
 (pdftex.def)             Requested size: 209.78323pt x 174.15019pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] <Resources/Losowanie.png, id=171, 250.9375pt x 247.92625pt>
+[3] <Resources/Losowanie.png, id=161, 250.9375pt x 247.92625pt>
 File: Resources/Losowanie.png Graphic file (type png)
 
 <use Resources/Losowanie.png>
-Package pdftex.def Info: Resources/Losowanie.png used on input line 211.
+Package pdftex.def Info: Resources/Losowanie.png used on input line 224.
 (pdftex.def)             Requested size: 175.65504pt x 173.54718pt.
  [4 <D:/Repozytoria_ GitHub/AIiR_0730_obliczanie_liczby_PI/Dokumenty/Dokumentac
 ja AIIR/Resources/Kolo_rysunek.png> <D:/Repozytoria_ GitHub/AIiR_0730_obliczani
@@ -879,7 +887,7 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 218.
+nput line 234.
 
 ("D:\Repozytoria_ GitHub\AIiR_0730_obliczanie_liczby_PI\Dokumenty\Dokumentacja 
 AIIR\Code/obliczanie_pi.cpp"
@@ -904,22 +912,22 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
  [5] [6])
-<Resources/Screen_Program_JedenWatek.png, id=266, 751.80875pt x 229.85875pt>
+<Resources/Screen_Program_JedenWatek.png, id=256, 751.80875pt x 229.85875pt>
 File: Resources/Screen_Program_JedenWatek.png Graphic file (type png)
 
 <use Resources/Screen_Program_JedenWatek.png>
 Package pdftex.def Info: Resources/Screen_Program_JedenWatek.png used on input 
-line 221.
+line 238.
 (pdftex.def)             Requested size: 451.08871pt x 137.91629pt.
  [7 <D:/Repozytoria_ GitHub/AIiR_0730_obliczanie_liczby_PI/Dokumenty/Dokumentac
 ja AIIR/Resources/Screen_Program_JedenWatek.png>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 243.
- [8] <Resources/mpi.jpg, id=290, 606.01407pt x 500.62032pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 267.
+ [8] <Resources/mpi.jpg, id=280, 606.01407pt x 500.62032pt>
 File: Resources/mpi.jpg Graphic file (type jpg)
 
 <use Resources/mpi.jpg>
-Package pdftex.def Info: Resources/mpi.jpg used on input line 266.
+Package pdftex.def Info: Resources/mpi.jpg used on input line 294.
 (pdftex.def)             Requested size: 363.61125pt x 300.37451pt.
 
 
@@ -927,106 +935,89 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [9] [10 <D:/Repozytoria_ GitHub/AIiR_0730_obliczanie_liczby_PI/Dokumenty/Dokume
 ntacja AIIR/Resources/mpi.jpg>]
-<Resources/GitHub_Logo.jpg, id=311, 401.5pt x 301.125pt>
+<Resources/GitHub_Logo.jpg, id=301, 401.5pt x 301.125pt>
 File: Resources/GitHub_Logo.jpg Graphic file (type jpg)
 
 <use Resources/GitHub_Logo.jpg>
-Package pdftex.def Info: Resources/GitHub_Logo.jpg used on input line 314.
+Package pdftex.def Info: Resources/GitHub_Logo.jpg used on input line 347.
 (pdftex.def)             Requested size: 240.90184pt x 180.67638pt.
-
-<Resources/Git_Logo.jpg, id=312, 225.84375pt x 225.84375pt>
+ [11 <D:/Repozytoria_ GitHub/AIiR_0730_obliczanie_liczby_PI/Dokumenty/Dokumenta
+cja AIIR/Resources/GitHub_Logo.jpg>]
+<Resources/Git_Logo.jpg, id=309, 225.84375pt x 225.84375pt>
 File: Resources/Git_Logo.jpg Graphic file (type jpg)
 
 <use Resources/Git_Logo.jpg>
-Package pdftex.def Info: Resources/Git_Logo.jpg used on input line 320.
+Package pdftex.def Info: Resources/Git_Logo.jpg used on input line 355.
 (pdftex.def)             Requested size: 90.33589pt x 90.33589pt.
- [11 <D:/Repozytoria_ GitHub/AIiR_0730_obliczanie_liczby_PI/Dokumenty/Dokumenta
-cja AIIR/Resources/GitHub_Logo.jpg>]
-Overfull \hbox (5.09872pt too wide) in paragraph at lines 335--338
+
+Overfull \hbox (5.09872pt too wide) in paragraph at lines 372--375
 \OT4/cmr/bx/n/12 git clo-ne https://github.com/syguts/AIiR0730obliczanieliczbyP
 I.git AIIR
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
 [12 <D:/Repozytoria_ GitHub/AIiR_0730_obliczanie_liczby_PI/Dokumenty/Dokumentac
 ja AIIR/Resources/Git_Logo.jpg>]
-<Resources/Trello_Logo.png, id=335, 329.23pt x 154.5775pt>
+<Resources/Trello_Logo.png, id=325, 329.23pt x 154.5775pt>
 File: Resources/Trello_Logo.png Graphic file (type png)
 
 <use Resources/Trello_Logo.png>
-Package pdftex.def Info: Resources/Trello_Logo.png used on input line 352.
+Package pdftex.def Info: Resources/Trello_Logo.png used on input line 392.
 (pdftex.def)             Requested size: 197.53952pt x 92.7472pt.
 
-<Resources/Trello_Zrzut.png, id=336, 1445.4pt x 903.375pt>
+<Resources/Trello_Zrzut.png, id=326, 1445.4pt x 903.375pt>
 File: Resources/Trello_Zrzut.png Graphic file (type png)
 
 <use Resources/Trello_Zrzut.png>
-Package pdftex.def Info: Resources/Trello_Zrzut.png used on input line 358.
+Package pdftex.def Info: Resources/Trello_Zrzut.png used on input line 400.
 (pdftex.def)             Requested size: 289.07487pt x 180.6718pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-AED: lastpage setting LastPage
 [13 <D:/Repozytoria_ GitHub/AIiR_0730_obliczanie_liczby_PI/Dokumenty/Dokumentac
 ja AIIR/Resources/Trello_Logo.png>] [14 <D:/Repozytoria_ GitHub/AIiR_0730_oblic
 zanie_liczby_PI/Dokumenty/Dokumentacja AIIR/Resources/Trello_Zrzut.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 367.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 367.
+
+AED: lastpage setting LastPage
+[15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 446.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 446.
 
 ("D:\Repozytoria_ GitHub\AIiR_0730_obliczanie_liczby_PI\Dokumenty\Dokumentacja 
 AIIR\Koncowa_dokumentacja.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 367.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 367.
-
-
-Package rerunfilecheck Warning: File `Koncowa_dokumentacja.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Koncowa_dokumentacja.out':
-(rerunfilecheck)             Before: 41C0E875F198D0AA43856BC1DB45550D;1879
-(rerunfilecheck)             After:  2DABF4598AAEEB3D9B49B7ECC2422E05;1705.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 367.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 446.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 446.
+Package rerunfilecheck Info: File `Koncowa_dokumentacja.out' has not changed.
+(rerunfilecheck)             Checksum: 2DABF4598AAEEB3D9B49B7ECC2422E05;1705.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 446.
  ) 
 Here is how much of TeX's memory you used:
- 10119 strings out of 493921
- 148942 string characters out of 3144877
- 513470 words of memory out of 3000000
- 13076 multiletter control sequences out of 15000+200000
+ 10165 strings out of 493921
+ 149437 string characters out of 3144877
+ 514266 words of memory out of 3000000
+ 13114 multiletter control sequences out of 15000+200000
  17956 words of font info for 48 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,12n,61p,1314b,1971s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{subsection.5.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc}{C:/Program File
-s (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Program Files (x86)/MiKTeX 2
-.9/fonts/enc/dvips/pl/plmi.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvi
-ps/pl/plme.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{
-C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plsc.enc}<C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/pl/plbx12.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/pl/plcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/public/pl/plex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/pl/plmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr10.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr6.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/pl/plr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/public/pl/plsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/pl/plti12.pfb>
-Output written on Koncowa_dokumentacja.pdf (15 pages, 595103 bytes).
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc}{C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/enc/dvips/pl/plmi.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/d
+vips/pl/plme.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc
+}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plsc.enc}<C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/pl/plbx12.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/pl/plcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/pl/plex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/pl/plmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr10
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr6.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/pl/plr8.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/pl/plsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/pl/plti12.pfb>
+Output written on Koncowa_dokumentacja.pdf (16 pages, 597099 bytes).
 PDF statistics:
- 435 PDF objects out of 1000 (max. 8388607)
- 157 named destinations out of 1000 (max. 500000)
- 257 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 438 PDF objects out of 1000 (max. 8388607)
+ 163 named destinations out of 1000 (max. 500000)
+ 241 words of extra memory for PDF output out of 10000 (max. 10000000)
 
