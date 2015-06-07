@@ -225,6 +225,53 @@ Jak widać na zamieszczonym zdjęciu ekranu program jednowątkowy obliczający r
 \section{Zastosowane technologie.}
 \subsection{Framework Django.}
 \subsection{Technologia MPI.}
+MPI, czyli Message Passing Interface jest protokołem komunikacyjnym będącym standardem przesyłania komunikatów pomiędzy procesami programów równoległych działających na jednym, lub wielu komputerach. Ze względu na dominacje wykorzystywania tego modelu w klastrach komputerowych oraz superkomputerach, posłużył on jako główny protokół komunikacyjny w projekcie.
+MPI jest specyfikacją biblioteki funkcji opartych na modelu wymiany komunikatów dla potrzeb programowania równoległego. Transfer danych pomiędzy poszczególnymi procesami programu wykonywanymi na procesorach maszyn będących węzłami klastra odbywa się za pośrednictwem sieci. Opisany schemat działania ilustruje poniższy rysunek.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{Resources/mpi.jpg}
+\caption{Ogólny schemat działania protokołu MPI.} 
+\end{figure}
+
+Aby zapewnić sprawną komunikacją pomiędzy komputerem Master, a Slave’ami należy skonfigurować bez kluczowe połączenia. Do tego celu najlepszym rozwiązaniem jest użycie SSH, które umożliwi logowanie bez użycia hasła, wykorzystując do tego klucz publiczny, na przykład RSA. Podstawowy schemat działania wygląda następująco:
+\begin{itemize}
+\item \textbf{sudo apt-get install openssh-server} - instalacja serwera ssh na komputerze Master
+\item \textbf{sudo apt-get install openssh-client} - instalacja klientów na komputerach Slave
+\item \textbf{ssh-keygen –t rsa} - wygenerowanie kluczy na komputerze Master
+\item \textbf{scp .ssh/id\_rsa.pub username@IP\_addr:~} - skopiowanie klucza publicznego do Slave'a
+\item \textbf{cat id\_rsa.pub >> .ssh/authorized\_keys} - z poziomu Slave'a dodanie otrzymanych kluczy publicznych do  kluczy autoryzowanych
+\end{itemize}
+
+Mając skonfigurowane połączenie pomiędzy hostami, można skompilować program wydając polecenie: 
+
+\begin{itemize}
+\item \textbf{mpicc pi.c –o pi.out}
+\end{itemize}
+
+Po poprawnym i bezbłędnym skompilowaniu kodu, powinien pojawić się plik wynikowy z rozszerzeniem \textbf{.out}, który należy skopiować do wszystkich hostów:
+
+\begin{itemize}
+\item \textbf{scp pi.out username@ip\_addr:~}
+\end{itemize}
+
+Jeśli wszystkie hosty posiadają ten sam program, przed uruchomieniem klastra należy stworzyć i skonfigurować plik, zawierający konfigurację maszyn w klastrze. Tworzymy plik, np. .mpi\_hostfile, który należy uzupełnić według podanego schematu:
+
+\begin{lstlisting}
+#Hostfile dla Open MPI
+
+#Master node, parametr 'slots=2' ustawiony, dlatego, ze node jest dwu-procesorowy
+localhost slots=2
+
+#Definiujemy slave'y, oraz dozwolona liczbe procesorow do uzycia
+cichy@192.168.1.118 slots=2 max_slots=4
+slawek@192.168.1.119 slots=8 max_slots=8
+\end{lstlisting}
+
+Jeśli wszystko przebiegło pomyślnie możliwe jest uruchomienie programu rozproszonego:
+\begin{itemize}
+\item \textbf{mpirun –np liczbaProcesorow –hostfile nazwaHostfile /sciezka/pi.out}
+\end{itemize}
 \subsection{CSS i HTML.}
 \subsection{Komunikacja grupy.}
 Podczas realizacji projektu wykorzystane zostały narzędzia ułatwiające pracę w grupie. Stworzone zostało repozytorium, w którym umieszczane były kody źródłowe programu obliczającego liczbę Pi czy też apliakcji internetowej napisanej w frameworku Django. Ponadto na portalu Trello istniała tablica na której zamieszczane były zadania do zrealizowania. Umożliwiło to jasny podział zadań oraz bez problemową serializację efektów pracy niwelując liczbę konfliktów podczas równoległego tworzenia kodu przez różne osoby. Podczas realizacji projektu każdy członków z grupy dzięki dobrze zoorganizowanej tablicy Trello znał swoje zadania oraz terminy realizacji, które stanowiły motywację do pracy.
