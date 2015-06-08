@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.9)  8 JUN 2015 09:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.9)  8 JUN 2015 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -983,10 +983,6 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 453.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 453.
 Package rerunfilecheck Info: File `Koncowa_dokumentacja.out' has not changed.
 (rerunfilecheck)             Checksum: C80FD63F5ECF9ECEDE0CA66D8AD383A2;1757.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 453.
  ) 
 Here is how much of TeX's memory you used:
@@ -1013,7 +1009,7 @@ blic/pl/plr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/pl/plr
 /local/texlive/2014/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/public/pl/plti12.pfb>
-Output written on Koncowa_dokumentacja.pdf (19 pages, 558845 bytes).
+Output written on Koncowa_dokumentacja.pdf (19 pages, 558834 bytes).
 PDF statistics:
  588 PDF objects out of 1000 (max. 8388607)
  535 compressed objects within 6 object streams

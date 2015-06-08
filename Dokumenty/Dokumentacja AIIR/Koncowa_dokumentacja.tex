@@ -194,7 +194,7 @@ Metoda Monte Carlo stosowana jest do problemów, które jest bardzo trudno rozwi
 \item Obliczanie złożonych symulacji.
 \end{enumerate}
 
-Metoda opiera się na losowaniu nazywanym w tym przypadku wyborem przypadkowym. Losowanie dokonywane jest zgodnie z rozkładem, który jest znany. Przykładowo całkowanie metodą Monte-Carlo działa na zasadzie porównywania losowych próbek z wartością funkcji. Dokładność wyniku uzyskanego tą metodą jest zależna od liczby sprawdzeń i jakości użytego generatora liczb pseudolosowych. Zwiększanie liczby prób nie zawsze zwiększa dokładność wyniku, ponieważ generator liczb pseudolosowych ma skończenie wiele liczb losowych w cyklu. Przykładowo całkowanie tą metodą jest używane w przypadkach, kiedy szybkość otrzymania wyniku jest ważniejsza od jego dokładności (np. obliczenia inżynierskie).\\
+Metoda opiera się na losowaniu nazywanym w tym przypadku wyborem przypadkowym. Losowanie dokonywane jest zgodnie z rozkładem, który jest znany. Przykładowo całkowanie metodą Monte-Carlo działa na zasadzie porównywania losowych próbek z wartością funkcji. Dokładność wyniku uzyskanego tą metodą jest zależna od liczby sprawdzeń i jakości użytego generatora liczb pseudolosowych. Zwiększanie liczby prób nie zawsze zwiększa dokładność wyniku, ponieważ generator liczb pseudolosowych ma skończenie wiele liczb losowych w cyklu. Przykładowo całkowanie tą metodą jest używane w~przypadkach, kiedy szybkość otrzymania wyniku jest ważniejsza od jego dokładności (np. obliczenia inżynierskie).\\
 
 W projekcie algorytm Monte Carlo zostanie wykorzystany do obliczenia rozszerzenia dziesiętnego liczby Pi. Dokładny opis realizacji tego algorytmu znajduję się w następnym punkcie.
 
@@ -265,7 +265,7 @@ urls.py
 
 \begin{itemize}
 \item \textbf{init.py: }Pusty plik informujący Pythona o tym, że katalog nadrzędny powinien być traktowany jako pakiet Pythona 
-\item \textbf{manage.py: }Działające z linii poleceń narzędzie, które pozwala na interakcję z projektem Django na różne sposoby.
+\item \textbf{manage.py: }Działające z linii poleceń narzędzie, które pozwala na interakcję z~projektem Django na różne sposoby.
 \item \textbf{settings.py}Ustawienia/konfiguracja dla tego projektu Django.
 \item \textbf{urls.py}Deklaracja adresów URL dla tego projektu Django; “mapa serwisu” Twojej strony zbudowanej w oparciu o Django.
 \end{itemize}
@@ -274,7 +274,7 @@ Przechodząc do katalogu PI, można sprawdzić czy server deweloperski działa, 
 \textbf{python manage.py runserver}
 
 \subsubsection{Ustawienia bazy danych.}
-Django można używać bez bazy danych, jednak dostarczony jest wraz z systemem ORM (odwzorowanie relacyjno-obiektowe), za pomocą, którego można definiować tabele w bazie danych oraz pracować na nich pisząc i operując na klasach w Pythonie. Django współpracuje z następującymi serwerami bazodanowymi: PostgreSQL, MySQL, Oracle i SQLite. Ze względu na łatwość obsługi wybrany został MySQL, przez co należało doinstalować MySQLdb:\\
+Django można używać bez bazy danych, jednak dostarczony jest wraz z systemem ORM (odwzorowanie relacyjno-obiektowe), za pomocą, którego można definiować tabele w bazie danych oraz pracować na nich pisząc i operując na klasach w Pythonie. Django współpracuje z następującymi serwerami bazodanowymi: PostgreSQL, MySQL, Oracle i~SQLite. Ze względu na łatwość obsługi wybrany został MySQL, przez co należało doinstalować MySQLdb:\\
 \textbf{sudo apt-get install python2.7-mysqldb}\\
 Co wymagało również zmiany silnika bazy danych w ustawieniach aplikacji na „django.db.backends.mysql” oraz z wnętrza powłoki bazy danych utworzenia 
 potrzebnej bazy danych. Ze względu, że w pliku settings.py INSTALLEDAPPS zawarte są domyślne aplikacje, należy użyć komendy:\\
@@ -442,7 +442,7 @@ Pierwszym krokiem podczas implementacji silnika obliczeniowego - programu oblicz
 
 \lstinputlisting[language=C++]{Code/wspol_pi.cpp}
 
-Program pobiera od użytkownika ilośc punktów biorących udział w losowaniu oraz ilość wątków. Następnie w zalężności od liczby wątków obliczany jest zakres - przydział punktów dla każdego z wątków. Każdy z wątków zlicza ilość punktów znajdujących się w kole. Po wykonaniu się funkcji wszystkich wątków, wątek macierzysty sumuje poszczególne liczniki i oblicza wartość przybliżenia Pi. 
+Program pobiera od użytkownika ilośc punktów biorących udział w losowaniu oraz ilość wątków. Następnie w zalężności od liczby wątków obliczany jest zakres - przydział punktów dla każdego z wątków. Każdy z wątków zlicza ilość punktów znajdujących się w~kole. Po wykonaniu się funkcji wszystkich wątków, wątek macierzysty sumuje poszczególne liczniki i oblicza wartość przybliżenia Pi. 
 
 \section{Aplikacja internetowa.}
 
