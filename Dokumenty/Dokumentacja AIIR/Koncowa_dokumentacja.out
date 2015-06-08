@@ -21,6 +21,8 @@
 \BOOKMARK [1][-]{section.5}{Plan realizacji.}{}% 21
 \BOOKMARK [1][-]{section.6}{Implementacja silnika obliczeniowego.}{}% 22
 \BOOKMARK [2][-]{subsection.6.1}{Zr\363wnoleglenie algorytmu}{section.6}% 23
-\BOOKMARK [1][-]{section.7}{Aplikacja internetowa.}{}% 24
-\BOOKMARK [1][-]{section.8}{Testy.}{}% 25
-\BOOKMARK [1][-]{section.9}{Podsumowanie i wnioski.}{}% 26
+\BOOKMARK [2][-]{subsection.6.2}{Zastosowanie technologii MPI}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.3}{Komunikacja z baza danych aplikacji.}{section.6}% 25
+\BOOKMARK [1][-]{section.7}{Aplikacja internetowa.}{}% 26
+\BOOKMARK [1][-]{section.8}{Testy.}{}% 27
+\BOOKMARK [1][-]{section.9}{Podsumowanie i wnioski.}{}% 28

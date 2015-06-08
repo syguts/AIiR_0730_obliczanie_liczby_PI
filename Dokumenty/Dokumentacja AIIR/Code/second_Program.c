@@ -1,13 +1,12 @@
 /**
  Calculate Pi with MPI protocol
- Author : Paweł Sternik
+ Author : Pawel Sternik
  Date: 22.05.2015
  **/
 #include "mpi.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <mysql/mysql.h>
 #include <string.h>
 #include <stdbool.h>
  

@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Projekt: AIiR																		%
 % Semestr VI																			%
-% Data: Marzec / Czerwiec 2015															%
+% Data: Marzec / Czerwiec 2015												%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
@@ -359,18 +359,34 @@ GitHub to serwis internetowy wykorzystywany masowo przy projektach programistycz
 Instrukcja do skonfigurowania i uruchomienia repozytorium opartego o system kontroli wersji Git na systemie Linux:
 
 \begin{enumerate}
-\item Instalacja najnowszej wersji gita za pomocą komendy:\\
+\item Instalacja najnowszej wersji gita za pomocą komendy:
+\begin{center}
 \textbf{sudo apt-get install git}
-\item Drugi krok to ustawienie globalnych danych konta założonego na stronie GitHub:\\
+\end{center}
+
+\item Drugi krok to ustawienie globalnych danych konta założonego na stronie GitHub:
+\begin{center}
 \textbf{sudo git config --global user.name "nazwaKonta" }
-\item Następnie podajemy analogicznie maila na którego mamy zalożone konto na GitHub:\\
+\end{center}
+
+\item Następnie podajemy analogicznie maila na którego mamy zalożone konto na GitHub:
+\begin{center}
 \textbf{sudo git config --global user.email "email"}
+\end{center}
+
 \item Przed tym krokiem zostały już skonfigurowane dane konta.  Teraz należy je potwierdzić i polączyć się z interesującym nas repozytorium. Do nawiązania połączenia wykorzystywane są dwa sposoby : protokół HTTPS lub SSH. Tym razem wykorzystany będzie protokół HTTPS.
+
 \item Prawdopodobnie po skonfigurowaniu danych konta Git pobierze automatycznie repozytoria, do których dane konto miało dostęp i umieści je w folderze Dokumenty.
-\item W innym przypadku należy skopiować adres repozytorium ze strony portalu. Przykładowo:\\
+
+\item W innym przypadku należy skopiować adres repozytorium ze strony portalu. Przykładowo:
+\begin{center}
 \textbf{https://github.com/syguts/AIiR0730obliczanieliczbyPI.git}
-\item Nawiązanie połączenia poprzez komendę:\\
+\end{center}
+
+\item Nawiązanie połączenia poprzez komendę:
+\begin{center}
 \textbf{git clone https://github.com/syguts/AIiR0730obliczanieliczbyPI.git AIIR}
+\end{center}
 Gdzie "AIIR" to nazwa folderu, do którego zostanie pobrane repozytorium (wersja lokalna).
 \end{enumerate}
 
@@ -443,6 +459,44 @@ Pierwszym krokiem podczas implementacji silnika obliczeniowego - programu oblicz
 \lstinputlisting[language=C++]{Code/wspol_pi.cpp}
 
 Program pobiera od użytkownika ilośc punktów biorących udział w losowaniu oraz ilość wątków. Następnie w zalężności od liczby wątków obliczany jest zakres - przydział punktów dla każdego z wątków. Każdy z wątków zlicza ilość punktów znajdujących się w~kole. Po wykonaniu się funkcji wszystkich wątków, wątek macierzysty sumuje poszczególne liczniki i oblicza wartość przybliżenia Pi. 
+
+\subsection{Zastosowanie technologii MPI}
+Następnym krokiem podczas ralizacji silnika obliczeniowego było zaimplementowanie protokołu komunikacyjnego, czyli technologi MPI. Działa ona analogicznie co do metody współbieżnej przy czym wątki POSIX zostały zastąpione slave'mi MPI. Program posiada zdefiniowane na sztywno zmienne z biblioteki MPI określające liczbę stacji roboczych, które wczytuje z pliku konfiguracyjnego. Następnie identycznie jak w poprzednim programie w zależności od ilości punktów i maszyn wylicza zakresy dla każdego z wątków. Program przyjmuje w parametrach wywołania ilość punktów. Master po zakończeniu pracy slave'ów zlicza wynik cząstkowe i podstawia do wzoru obliczającego przybliżenie liczby Pi. Poniżej Listing programu: 
+
+\lstinputlisting[language=C++]{Code/second_Program.c}
+
+\subsection{Komunikacja z bazą danych aplikacji.}
+Komunikacja z bazą danych aplikacji została zrealizowana poprzez wykorzystanie biblioteki języka C: mysql.h. Biblioteka zawiera metody umożliwiające zdalne połączenie z bazą danych MySQL poprzez adres IP i numer portu. Wymaga to również podanie danych użytkownika danej bazy. Zatem został zaimplementowany osobny program obsługujący akcje dokonywane na bazie danych i nasłuchujący pojawienie się zadań zleconych przez użytkowników aplikacji internetowej. Takie rozwiązanie umożliwiło stworzenie dodatkowej cechy systemu. Użytkownik jest w stanie określić ilość wątków na których ma zostać uruchomiony algorytm .Realizowane jest to poprzez wywołanie programu liczącego z poziomu komendy system z odpowienim parametrem kompilatora mpi open . Przykładowo :
+
+\begin{center}
+\textbf{system("mpirun -np lilosProcesow second iloscPunktow")}
+\end{center}
+
+Podsumowując program działa w procedurze:
+
+\begin{enumerate}
+\item Nawiązanie połączenia z bazą danych poprzez metodę \textbf{mysqlRealConnect}, która wymaga podania adresu bazy danych , nazwy użytkownika i jego hasła.
+
+\item Program oczekuje czy zadanie pojawi się w bazie danych sprawdzając metodą biblioteki mysql pierwszy wiersz tabeli :
+
+\begin{center}
+\textbf{mysqlQuery(conn, "SELECT * FROM PI2Task limit 1")}
+\end{center}
+
+\item Po pojawieniu się zadania program pobiera dane zleconego zadania metodami : \textbf{mysqlUseResult(conn)}, gdzie conn jest uchwytem połączenia z bazą, \textbf{mysqlFetchRow(res)}, gdzie res to wszystkie dane.
+
+\item Do tabeli wyników zostaje dodany wiersz sygnalizujący aplikację internetową o podjęciu zlecenia - włączenie dynamicznego progresu. Wiersz nie posiada wówczas uzupełnionej kolumny wyniku.
+
+\item Natomiast  w tabeli zleconych zadań zostaje usunięty wiersz pobranego zadania. Dzięki temu tabela działa jak kolejka FIFO - First Input First Output. 
+
+\item Nastepuje wywołanie programu liczącego z pobranymi wcześniej parametrami zadanymi przez użytkownika aplikacji internetowej. 
+
+\item Program po zwróceniu wyniku przez program liczący aktualizuje wiersz w tabeli wyników. Następnie jeżeli coś znajduje się w kolejce od razu przystępuje do realizacji zadania . W innym przypadku oczekuje na zlecenie zadania. 
+\end{enumerate}
+
+Listing programu łączącego aplikację internetową z programem liczącym:
+
+\lstinputlisting[language=C++]{Code/firstProgram.c}
 
 \section{Aplikacja internetowa.}
 
