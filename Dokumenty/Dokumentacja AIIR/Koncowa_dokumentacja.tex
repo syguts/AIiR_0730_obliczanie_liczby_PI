@@ -437,6 +437,13 @@ Drużyna B - Sygut i Cichuta:
 
 \section{Implementacja silnika obliczeniowego.}
 
+\subsection{Zrównoleglenie algorytmu}
+Pierwszym krokiem podczas implementacji silnika obliczeniowego - programu obliczającego przybliżenie liczby Pi w oparciu o algorytm Monte Carlo była implementacja programu współbieżnego. Wykorzystana została w tym celu biblioteka systemu Linux - POSIX Threads.Biblioteka udostępnia jednolite API dla język C do tworzenia i zarządzania wątkami, jest dostępna w systemach m.in. Linux, FreeBSD, Windows. Implementacja miała na celu przygotowanie merytoryczne do implementacji algorytmu z wykorzystaniem technologii MPI. W tym celu zalecane było zapoznanie się z metodą zrównoleglenia tego algorytmu. Poniżej Listing programu z wykorzystaniem POSIX Threads.
+
+\lstinputlisting[language=C++]{Code/wspol_pi.cpp}
+
+Program pobiera od użytkownika ilośc punktów biorących udział w losowaniu oraz ilość wątków. Następnie w zalężności od liczby wątków obliczany jest zakres - przydział punktów dla każdego z wątków. Każdy z wątków zlicza ilość punktów znajdujących się w kole. Po wykonaniu się funkcji wszystkich wątków, wątek macierzysty sumuje poszczególne liczniki i oblicza wartość przybliżenia Pi. 
+
 \section{Aplikacja internetowa.}
 
 \section{Testy.}

@@ -20,6 +20,7 @@
 \contentsline {subsubsection}{\numberline {4.4.2}Trello.}{13}{subsubsection.4.4.2}
 \contentsline {section}{\numberline {5}Plan realizacji.}{14}{section.5}
 \contentsline {section}{\numberline {6}Implementacja silnika obliczeniowego.}{15}{section.6}
-\contentsline {section}{\numberline {7}Aplikacja internetowa.}{15}{section.7}
-\contentsline {section}{\numberline {8}Testy.}{15}{section.8}
-\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{15}{section.9}
+\contentsline {subsection}{\numberline {6.1}Zr\IeC {\'o}wnoleglenie algorytmu}{15}{subsection.6.1}
+\contentsline {section}{\numberline {7}Aplikacja internetowa.}{18}{section.7}
+\contentsline {section}{\numberline {8}Testy.}{18}{section.8}
+\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{18}{section.9}
