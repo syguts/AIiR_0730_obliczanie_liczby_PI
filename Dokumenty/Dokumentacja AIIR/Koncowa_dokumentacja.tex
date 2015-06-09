@@ -66,7 +66,7 @@
 \newcommand{\Title}{Obliczanie przybliżenia liczby Pi.}
 \newcommand{\UnderTitle}{Dokumentacja końcowa}
 \newcommand{\University}{Politechnika Wrocławska}
-\newcommand{\Class}{Aplikacje Internetowe i Rozproszone}
+\newcommand{\Class}{Aplikacje Internetowe i Rozproszone INES00304P}
 \newcommand{\ClassDay}{Środa}
 \newcommand{\ClassTime}{07:30}
 \newcommand{\ClassInstructor}{dr inż.~Marek Woda}
@@ -137,9 +137,9 @@
 \begin{flushleft} \large
 \emph{Grupa projektowa:}
 \\ Paweł \textsc{Sternik}, 200623
-\\ Kamil \textsc{Cichuta}, ???
-\\ Mariusz \textsc{Cebula}, ???
-\\ Sławomir \textsc{Sygut}, ???
+\\ Kamil \textsc{Cichuta}, 200838
+\\ Mariusz \textsc{Cebula}, 20772
+\\ Sławomir \textsc{Sygut}, 200668
 \end{flushleft}
 \end{minipage}
 ~
@@ -201,11 +201,13 @@ W projekcie algorytm Monte Carlo zostanie wykorzystany do obliczenia rozszerzeni
 \subsection{Obliczanie liczby Pi metodą Monte Carlo.} 
 Liczbę Pi można obliczać na wiele różnych sposobów. Jednym z nich jest wykorzystanie metody Monte Carlo. Metoda ta charakteryzuję się przede wszystkim swoją stosunkową prostą procedurą jak i przystosowaniem do zaimplementowania mechanizmów zrównoleglenia - co jest jednym z głównych celów projektu.
 
+\begin{center}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Resources/Kolo_rysunek.png}
 \caption{Koło o promieniu r wpisane w kwadrat - bok 2r.}
 \end{figure}
+\end{center}
 
 Pole kwadratu przedstawionego na Rysunku 1 wynosi:
  \[(4\prod)^{2}\]
@@ -219,11 +221,13 @@ Następnie korzystając z tego, że pole koła jak i kwadratu zostały w jakiś 
 \[\prod =4\frac{PoleKola}{PoleKwadratu}\]
 Dojście do tego punktu mogłoby się wydawać zatoczeniem koła i powrotem do punktu początkowego problemu. Tak nie jest. Ponieważ dopiero w tym miejscu pojawia się cała charakterystyka metody Monte Carlo. Abstrakcyjnie należy sobię teraz wyobraźić sytuację, w której rzucamy bardzo dużo razy rzutkami w tarczę wyglądająca jak Rysunek 1. Kończąc grę, plansza będzie pokryta rzutkami znajdującymi sie we wnętrzu koła jak i poza nim na obszarze kwadratu. Podsumowując liczba rzutek w i poza kołem będzie równa stosunkowi pola koła do pola kwadratu.
 
+\begin{center}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.7]{Resources/Losowanie.png}
 \caption{Przykład losowania punktów.}
 \end{figure}
+\end{center}
 
  Formalnie losowanie będzie odbywać się pośród punktów należących do zbioru pokrytego współrzędnymi należacymi do predziału [-2r,2r]. Stosunek liczby punktów
 zawierających się w kole o środku w punkcie [0,0] i promieniu r do wszystkich wylosowanych punktów będzie dążył w nieskończoności (z pewnym prawdopodobieństwem) do stosunku tego pola koła do koła kwadratu o boku 2r. Co więcej, stosunek ten będzie identyczny również do ćwiartki koła. Jeżeli pole koła podzielimy na cztery i tak samo podzielimy pole kwadratu, to ich stosunek będzie wciąż taki sam. Oznacza to, że wystarczy, jeżeli będziemy losowali punkty o współrzędnych od 0 do r. Cała metoda sprowadza się więc do tego, by losować punkty, sprawdzać, czy mieszczą się w kole, i następnie podstawiać liczby wylosowanych punktów do wzoru. Losując odpowiednio dużo punktów, powinniśmy otrzymać z pewnym prawdopodobieństwem rozsądne przybliżenie liczby Pi.
@@ -240,62 +244,53 @@ Dla lepszego zrozumienia działania algorytmu i sprawdzenia jego rezultatów stw
 \end{figure}
 
 Jak widać na zamieszczonym zdjęciu ekranu program jednowątkowy obliczający rozwinięcie dziesiętne liczby Pi korzystając z metody Monte Carlo obliczył liczbę Pi równą 3.14215. Otrzymana dokładność sięga jedynie dwóch miejsc po przecinku przy stosunkowo już dużej ilości losowanych punktów - 10 mln. Program wyświetlił informację o tym, że 7855365 punktów znalazło się w kole.
-
+\newpage
 \section{Zastosowane technologie.}
 
 \subsection{Framework Django.}
 
-\subsubsection{Opis.}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale =0.2]{Resources/django.png}
+\caption{Logo frameworku Django.} 
+\end{figure}
+
+\subsubsection{Opis}
 Django – wysokopoziomowy, opensource’owy framework przeznaczony do tworzenia aplikacji internetowych, napisany w Pythonie. Powstał pod koniec 2003 roku jako ewolucyjne rozwinięcie aplikacji internetowych, tworzonych przez grupę programistów związanych z Lawrence Journal-World. Nazwa frameworku pochodzi od imienia gitarzysty Django Reinhardta.
 Framework wymaga instalacji interpretera Pythona. W ramach projektu wykorzystany został Python 2.7.6, instalacja jednak nie była konieczna, ponieważ w systemie Linux był wgrany domyślnie.
 
-\subsubsection{Instalacja Django.}
-W projekcie zostało użyte Django w wersji 1.7.5, jednak od 01.04.2015 dostępna jest już wersja 1.8 LTS:\\
+\subsubsection{Instalacja Django}
+W projekcie zostało użyte Django w wersji 1.7.5, jednak od 01.04.2015 dostępna jest już wersja 1.8 LTS.
+
+\begin{center}
 \textbf{pip install Django==1.7.5}
-
-\subsubsection{Tworzenie nowego projektu.}
-W linii poleceń należy przejść do katalogu, w którym będzie znajdował się kod, następnie wpisując:\\
-\textbf{django-admin.py startproject PI}\\
-Utworzony zostanie katalog z projektem:
-PI/\\
-init.py\\
-manage.py\\
-settings.py\\
-urls.py
-
-\begin{itemize}
-\item \textbf{init.py: }Pusty plik informujący Pythona o tym, że katalog nadrzędny powinien być traktowany jako pakiet Pythona 
-\item \textbf{manage.py: }Działające z linii poleceń narzędzie, które pozwala na interakcję z~projektem Django na różne sposoby.
-\item \textbf{settings.py}Ustawienia/konfiguracja dla tego projektu Django.
-\item \textbf{urls.py}Deklaracja adresów URL dla tego projektu Django; “mapa serwisu” Twojej strony zbudowanej w oparciu o Django.
-\end{itemize}
-
-Przechodząc do katalogu PI, można sprawdzić czy server deweloperski działa, w tym celu należy wpisać:\\
-\textbf{python manage.py runserver}
-
-\subsubsection{Ustawienia bazy danych.}
-Django można używać bez bazy danych, jednak dostarczony jest wraz z systemem ORM (odwzorowanie relacyjno-obiektowe), za pomocą, którego można definiować tabele w bazie danych oraz pracować na nich pisząc i operując na klasach w Pythonie. Django współpracuje z następującymi serwerami bazodanowymi: PostgreSQL, MySQL, Oracle i~SQLite. Ze względu na łatwość obsługi wybrany został MySQL, przez co należało doinstalować MySQLdb:\\
-\textbf{sudo apt-get install python2.7-mysqldb}\\
-Co wymagało również zmiany silnika bazy danych w ustawieniach aplikacji na „django.db.backends.mysql” oraz z wnętrza powłoki bazy danych utworzenia 
-potrzebnej bazy danych. Ze względu, że w pliku settings.py INSTALLEDAPPS zawarte są domyślne aplikacje, należy użyć komendy:\\
-\textbf{python manage.py syncdb, która dla w/w aplikacji tworzy tabele w bazie.}
-
-\subsubsection{Tworzenie modeli.}
-W katalogu PI, aby zacząć pracę nad projektem należy wprowadzić następujące polecenie:\\
-\textbf{python manage.py startapp PI2}\\
-Co utworzy podkatalog PI2, w którym będzie się znajdować struktura docelowej aplikacji.
-
+\end{center}
+\newpage
 \subsection{Technologia MPI.}
 MPI, czyli Message Passing Interface jest protokołem komunikacyjnym będącym standardem przesyłania komunikatów pomiędzy procesami programów równoległych działających na jednym, lub wielu komputerach. Ze względu na dominacje wykorzystywania tego modelu w klastrach komputerowych oraz superkomputerach, posłużył on jako główny protokół komunikacyjny w projekcie.
-MPI jest specyfikacją biblioteki funkcji opartych na modelu wymiany komunikatów dla potrzeb programowania równoległego. Transfer danych pomiędzy poszczególnymi procesami programu wykonywanymi na procesorach maszyn będących węzłami klastra odbywa się za pośrednictwem sieci. Opisany schemat działania ilustruje poniższy rysunek.
+MPI jest specyfikacją biblioteki funkcji opartych na modelu wymiany komunikatów dla potrzeb programowania równoległego. Transfer danych pomiędzy poszczególnymi procesami programu wykonywanymi na procesorach maszyn będących węzłami klastra odbywa się za pośrednictwem sieci. Opisany schemat działania ilustruje Rysunek \ref{fig:mpi.jpg}.
 
-\begin{figure}[h!]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{Resources/mpi.jpg}
 \caption{Ogólny schemat działania protokołu MPI.} 
+\label{fig:mpi.jpg}
 \end{figure}
 
-Aby zapewnić sprawną komunikacją pomiędzy komputerem Master, a Slave’ami należy skonfigurować bez kluczowe połączenia. Do tego celu najlepszym rozwiązaniem jest użycie SSH, które umożliwi logowanie bez użycia hasła, wykorzystując do tego klucz publiczny, na przykład RSA. Podstawowy schemat działania wygląda następująco:
+Do poprawnego uruchomienia klastra obliczeniowego w technologii \textbf{MPI} potrzebne jest klika rzeczy:
+\begin{itemize}
+\item co najmniej dwie maszyny podłączone przez TCP/IP
+\item wszystkie maszyny mają zainstalowaną system oparty na Linuxie
+\item każda maszyna używa takiej samej architektury procesora, aby zapewnić poprawne działanie programu wykonywalnego
+\end{itemize}
+
+Aby móc uruchomić projekt, należy na wszystkich komputerach zainstalować biblioteki \textbf{OpenMPI}:
+
+\begin{lstlisting}
+sudo apt-get install openmpi-bin openmpi-common libopenmpi1 libopenmpi-dev
+\end{lstlisting}
+
+Dodatkowo, aby zapewnić sprawną komunikacją pomiędzy komputerem Master, a Slave’ami należy skonfigurować bez kluczowe połączenia. Do tego celu najlepszym rozwiązaniem jest użycie SSH, które umożliwi logowanie bez użycia hasła, wykorzystując do tego klucz publiczny, na przykład RSA. Podstawowy schemat działania wygląda następująco:
 
 \begin{itemize}
 \item \textbf{sudo apt-get install openssh-server} - instalacja serwera ssh na komputerze Master
@@ -336,6 +331,15 @@ Jeśli wszystko przebiegło pomyślnie możliwe jest uruchomienie programu rozpr
 \end{itemize}
 
 \subsection{CSS i HTML.}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{Resources/html5css3.png}
+\caption{Logo HTML5 i CSS3.} 
+\end{figure}
+
+HTML5 – to język wykorzystywany do tworzenia i prezentowania stron internetowych. Jest rozwinięciem języka HTML 4 i jego XML-owej odmiany (XHTML 1). Został opracowany w ramach prac grupy roboczej WHATWG (Web Hypertext Application Technology Working Group) i W3C. Główną różnicą pomiędzy HTML 5 a XHTML 2 polega na tym, że HTML 5 jest pisane z myślą o kompatybilności wstecznej, podczas gdy XHTML 2 porzuciło kompatybilność. HTML5 poza dodaniem nowych elementów, usprawniających tworzenie serwisów i aplikacji internetowych, doprecyzowuje wiele niejasności w specyfikacji HTML 4, dotyczących przede wszystkim sposobu obsługi błędów. Niejasności co do sposobu, w jaki przeglądarki powinny obsługiwać błędy w kodzie HTML są jedną z podstawowych przyczyn, dla której wiele serwisów internetowych, napisanych z naruszeniem specyfikacji, w różnych przeglądarkach działa w inny sposób – w niektórych działając, w innych nie. Dzięki HTML-owi 5 obsługa błędów ma być ta sama we wszystkich przeglądarkach, czyli zły element będzie działać w każdej przeglądarce albo żadnej.
+Bootstrap to framework CSS i Javascript, mający za zadanie ułatwić zaprojektowanie kompletnej strony internetowej w prosty sposób. Założeniem frameworka Twitter Bootstrap jest udostępnienie gotowych elementów, takich jak listy, slidery czy menu, które umożliwiają zaprojektowanie strony w spójny sposób w możliwie krótkim czasie. Sam framework oprócz bogatej biblioteki stylów CSS zawiera także elementy takie jak „karuzele” które obsługiwane są z użyciem języka JavaScript. Oprócz podstawowych elementów, takich jak przygotowane wstępnie górne menu nawigacyjne strony, czy też elementy list i formularzy dostępne są także różnego rodzaju slidery, boxy na treść wyróżnioną, boxy powiadomień czy też gotowe, uproszczone nagłówki
 
 \subsection{Komunikacja grupy.}
 Podczas realizacji projektu wykorzystane zostały narzędzia ułatwiające pracę w grupie. Stworzone zostało repozytorium, w którym umieszczane były kody źródłowe programu obliczającego liczbę Pi czy też apliakcji internetowej napisanej w frameworku Django. Ponadto na portalu Trello istniała tablica na której zamieszczane były zadania do zrealizowania. Umożliwiło to jasny podział zadań oraz bez problemową serializację efektów pracy niwelując liczbę konfliktów podczas równoległego tworzenia kodu przez różne osoby. Podczas realizacji projektu każdy członków z grupy dzięki dobrze zoorganizowanej tablicy Trello znał swoje zadania oraz terminy realizacji, które stanowiły motywację do pracy.
@@ -416,6 +420,7 @@ Trello to aplikacja do zarządzania zadaniami. Opiera się ona na paradygmacie K
 \includegraphics[scale=0.2]{Resources/Trello_Zrzut.png}
 \caption{Przykłądowy widok tablicy na portalu Trello.} 
 \end{figure} 
+\newpage
 
 \section{Plan realizacji.}
 
@@ -500,8 +505,191 @@ Listing programu łączącego aplikację internetową z programem liczącym:
 
 \section{Aplikacja internetowa.}
 
+\subsection{Tworzenie nowego projektu.}
+W linii poleceń należy przejść do katalogu, w którym będzie znajdował się kod, następnie wpisując:\\
+\textbf{django-admin.py startproject PI}\\
+Utworzony zostanie katalog z projektem:
+PI/\\
+init.py\\
+manage.py\\
+settings.py\\
+urls.py
+
+\begin{itemize}
+\item \textbf{init.py: }Pusty plik informujący Pythona o tym, że katalog nadrzędny powinien być traktowany jako pakiet Pythona 
+\item \textbf{manage.py: }Działające z linii poleceń narzędzie, które pozwala na interakcję z~projektem Django na różne sposoby.
+\item \textbf{settings.py}Ustawienia/konfiguracja dla tego projektu Django.
+\item \textbf{urls.py}Deklaracja adresów URL dla tego projektu Django; “mapa serwisu” Twojej strony zbudowanej w oparciu o Django.
+\end{itemize}
+
+Przechodząc do katalogu PI, można sprawdzić czy server deweloperski działa, w tym celu należy wpisać:
+
+\begin{center}
+\textbf{python manage.py runserver}
+\end{center}
+
+\subsection{Ustawienia bazy danych.}
+Django można używać bez bazy danych, jednak dostarczony jest wraz z systemem ORM (odwzorowanie relacyjno-obiektowe), za pomocą, którego można definiować tabele w bazie danych oraz pracować na nich pisząc i operując na klasach w Pythonie. Django współpracuje z następującymi serwerami bazodanowymi: PostgreSQL, MySQL, Oracle i~SQLite. Ze względu na łatwość obsługi wybrany został MySQL, przez co należało doinstalować MySQLdb:
+
+\begin{center}
+\textbf{sudo apt-get install python2.7-mysqldb}
+\end{center}
+
+Co wymagało również zmiany silnika bazy danych w ustawieniach aplikacji na „django.db.backends.mysql” oraz z wnętrza powłoki bazy danych utworzenia 
+potrzebnej bazy danych. Ze względu, że w pliku settings.py INSTALLEDAPPS zawarte są domyślne aplikacje, należy użyć komendy:
+
+\begin{center}
+\textbf{python manage.py syncdb, która dla w/w aplikacji tworzy tabele w bazie.}
+\end{center}
+
+\subsection{Tworzenie modeli.}
+W katalogu PI, aby zacząć pracę nad projektem należy wprowadzić następujące polecenie:
+
+\begin{center}
+\textbf{python manage.py startapp PI2}
+\end{center}
+
+Co utworzy podkatalog PI2, w którym będzie się znajdować struktura docelowej aplikacji. W pliku models.py zostały stworzone następujące klasy:
+
+\lstinputlisting[language=Python]{Code/models.py}
+
+W tabeli Task znajdują się zadania, zlecone przez użytkowników, które oczekują w kolejce do pobrania i obliczenia przez silnik. 
+
+\begin{itemize}
+\item userID – ID usera zgłaszającego zadanie
+\item numberOfPoints – liczba punktów
+\item numberOfThreads – liczba wątków, na których zostaną wykonane obliczenia
+\end{itemize}
+
+W pliku forms.py zostały dodane klasy obsługi rejestracji oraz zlecenia zadania:
+
+\lstinputlisting[language=Python]{Code/forms.py}
+
+Formy pobierające dane zawierają następujące ograniczenia:
+\begin{itemize}
+\item Liczba punktów nie może być mniejsza od 1
+\item Liczba wątków musi się znajdować w przedziale [1-12]
+\end{itemize}
+
+W pliku admin.py została dodana możliwość przeglądania przez administratora profilów użytkowników, zleconych zadań oraz skończonych zadań.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{Resources/screenAdmin.png}
+\caption{Panel administratora.} 
+\end{figure} 
+
+\subsection{Tworzenie widoków wraz z obsługą żądań}
+W django do generowania widoków wykorzystywane są pliki z rozszerzeniem ".html". W aplikacji wykorzystano strony napisane w jezyku html w wersji 5 oparte o technologie twitter bootstrap.
+Aby w django utworzyć strone internetową z utworzonymi plikami "html", należy utworzyć folder w katalogu projektu o nazwie "templetes". W folderze tym umieszcza się wszystkie pliki statyczne tzn. dodatkowe biblioteki javascript (z rozszerzeniem: jar, js) pliki styli "css" oraz wszystkie pliki "html" tworzonego portalu.
+Nastepnie tworzy się plik urls.py w którym umieszcza się scieżki do plików html oraz podaje obsługujące je metody jezyka python zdefiniowane w pliku views.py:
+Listening pliku urls.py który wykorzystano w projekcie:
+
+\lstinputlisting[language=Python]{Code/urls.py}
+
+W pliku views.py zdefiniowane są wszystkie kontrolery obsługujące scieżki url oraz request'y, gdyż korzystając z technologi ajax można wywołać dany kontroler requestem POST lub GET.
+Listening prezentujący fragment pliku views.py który wykorzystano w~projekcie:
+
+\lstinputlisting[language=Python]{Code/views.py}
+
+\subsection{Zrzuty ekranów aplikacji internetowej}
+
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.2]{Resources/mainSite.jpg}
+\caption{Główna strona aplikacji internetowej.} 
+\end{figure} 
+\end{center}
+
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{Resources/registerSite.png}
+\caption{Widok rejestracji.} 
+\end{figure} 
+\end{center}
+
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Resources/logInSite.png}
+\caption{Widok zaloowanego użytkownika.} 
+\end{figure} 
+\end{center}
+
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Resources/adminLoginSite.png}
+\caption{Widok zaloowanego użytkownika.} 
+\end{figure} 
+\end{center}
+\newpage
 \section{Testy.}
 
+Aplikację testowaliśmy pod kątem złożoności czasowej w stusnku do liczby punktów. Testy zostały przeprowadzone na 3 stacja roboczych o podanej konfiguracji:
+
+\begin{enumerate}
+\item \textbf{Stacja robocza 1}
+\begin{itemize}
+\item Procesor: Core2Quad Q9400 (6M Cache, 2.66 GHz, 1333 MHz FSB)
+\item Pamięć: DDR3 4GB 1333MHz
+\item System: Linux Ubuntu 14.04
+\end{itemize}
+\item \textbf{Stacja robocza 2}
+\begin{itemize}
+\item Procesor: Core2Duo T6500 (2M Cache, 2.10 GHz, 800 MHz FSB ) 
+\item Pamięć: DDR3 4GB 1333MHz
+\item System: Linux Ubuntu 14.04
+\end{itemize}
+\item \textbf{Stacja robocza 3}
+\begin{itemize}
+\item Procesor: AMD E-450 (1M Cache, 1.65 GHz)
+\item Pamięć: DDR3 4GB 1333MHz
+\item System: Linux Ubuntu 14.04
+\end{itemize}
+\end{enumerate}
+
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.85]{Resources/tabela.jpg}
+\caption{Tablerayczne zestawienie wyników.} 
+\end{figure} 
+\end{center}
+
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.77]{Resources/wykres.jpg}
+\caption{Graficzne przedstawienie wyników.} 
+\end{figure} 
+\end{center}
+
+Jak widać z przedstawionych wyników, złożoność obliczeniowa zaimplementowanego algorytmu jest liniowa w stosunku do liczby punktów oraz liczby procesorów. Ze wzlędu na ograniczenia typu \textbf{unsigned int} zakres wpisywanych punktów mieści się w przedziale od 0 do około 2 100 000 000 punktów. 
+
+\newpage
 \section{Podsumowanie i wnioski.}
+
+W ramach kursu Aplikacje Internetowe i Rozproszone został zrelizowany projekt systemu rozproszonego odpowiedzialnego za obliczanie przybliżenia dziesiętnego liczby Pi algorytmem Monte Carlo. System ten składa się z kilku modułów takich jak: silinik obliczeniowy napisany w języku C, aplikacja internetowa z użyciem frameworku języka Python - Django, baza danych MySQL, komunikacja między stacjami roboczymi zrealizowana przy pomocy technologii MPI. Ostatecznie zbudowany system spełnia założenia projektowe i realizuje cele całego kursu.
+
+ Podczas rozwoju projektu grupa zdobyła wiedzę z zakresu pracy nad złożonym problemem inżynieryjskim w środowisku zespołu programistycznego. Do ułatwienia tego zadania wykorzystane zostały narzędzia do komunikacji i współdzielenia zasobów projektu. Mowa tutaj o zdalnym repozytorium opartym o system kontroli wersji Git na platformie GitHub. Planowanie pracy jak i przydział zadań odbywał się natomiast przy wykorzystaniu multimedialnej tablicy na serwisie Trello. 
+ 
+System działa poprawnie i spełnia wszystkie założone funkcjonalności przy respektowaniu pewnych ograniczeń, które zostały zaimplementowane. Użytkownik może maksymalnie wykorzystać 12 wątków w obecnej konfiguracji maszyn roboczych. Ograniczenie uległoby zmianie przy jakimkolwiek zmianie konfigarcji. Innym ograniczeniem jest maksymalna liczna punktów rozpatrywanych podczas pracy algorytmu. Wynika to z architektury programu - zakresu zmiennej przechowującej dane. 
+
+W ramach możliwego rozwoju aplikacji należałoby przystosować system, a w szczególności silnik obliczeniowy do przyjmowania większego zakresu punktów oraz optymalizacji wymiany informacji między stacjami roboczymi. Inaczej mówiąc zwiększenie automatyzacji wgrywania oprogramowania silnika na każdą z maszyn.
+
+Komunikacja w zespole odbywała się bez zarzutów o czym może świadczyć uporządkowana tablica na portalu Trello oraz systematyczna praca, którą można odtworzyć na zdalnym repozytorium.
+
+\section{Bibliografia }
+
+\begin{enumerate}
+\item Bootstrap Tworzenie Interfejsów Stron WWW - Syed Fazle Rahman
+\item Parallel Programming with MPI - Peter Pacheco
+\item Documentation of Django - https://docs.djangoproject.com/en/1.8/
+\item http://www.zsk.ict.pwr.wroc.pl/zsk/pracownicy/hmaciejewski
+\item Tango with Django Book - https://github.com/leifos/tango\_with\_django\_book
+\end{enumerate}
 
 \end{document}

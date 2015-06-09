@@ -6,23 +6,26 @@
 \contentsline {subsection}{\numberline {3.1}Opis s\IeC {\l }owny algorytmu.}{3}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Obliczanie liczby Pi metod\IeC {\k a} Monte Carlo.}{3}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Implementacja algorytmu - program jednow\IeC {\k a}tkowy.}{5}{subsection.3.3}
-\contentsline {section}{\numberline {4}Zastosowane technologie.}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Framework Django.}{7}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Opis.}{7}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Instalacja Django.}{8}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}Tworzenie nowego projektu.}{8}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}Ustawienia bazy danych.}{8}{subsubsection.4.1.4}
-\contentsline {subsubsection}{\numberline {4.1.5}Tworzenie modeli.}{9}{subsubsection.4.1.5}
+\contentsline {section}{\numberline {4}Zastosowane technologie.}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Framework Django.}{8}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Opis}{8}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Instalacja Django}{8}{subsubsection.4.1.2}
 \contentsline {subsection}{\numberline {4.2}Technologia MPI.}{9}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}CSS i HTML.}{11}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Komunikacja grupy.}{11}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}GitHub.}{11}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Trello.}{13}{subsubsection.4.4.2}
-\contentsline {section}{\numberline {5}Plan realizacji.}{14}{section.5}
-\contentsline {section}{\numberline {6}Implementacja silnika obliczeniowego.}{15}{section.6}
-\contentsline {subsection}{\numberline {6.1}Zr\IeC {\'o}wnoleglenie algorytmu}{15}{subsection.6.1}
+\contentsline {subsection}{\numberline {4.4}Komunikacja grupy.}{12}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}GitHub.}{12}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Trello.}{14}{subsubsection.4.4.2}
+\contentsline {section}{\numberline {5}Plan realizacji.}{15}{section.5}
+\contentsline {section}{\numberline {6}Implementacja silnika obliczeniowego.}{16}{section.6}
+\contentsline {subsection}{\numberline {6.1}Zr\IeC {\'o}wnoleglenie algorytmu}{16}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Zastosowanie technologii MPI}{18}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Komunikacja z baz\IeC {\k a} danych aplikacji.}{20}{subsection.6.3}
-\contentsline {section}{\numberline {7}Aplikacja internetowa.}{24}{section.7}
-\contentsline {section}{\numberline {8}Testy.}{24}{section.8}
-\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{24}{section.9}
+\contentsline {subsection}{\numberline {6.3}Komunikacja z baz\IeC {\k a} danych aplikacji.}{21}{subsection.6.3}
+\contentsline {section}{\numberline {7}Aplikacja internetowa.}{25}{section.7}
+\contentsline {subsection}{\numberline {7.1}Tworzenie nowego projektu.}{25}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Ustawienia bazy danych.}{25}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Tworzenie modeli.}{26}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Tworzenie widok\IeC {\'o}w wraz z obs\IeC {\l }ug\IeC {\k a} \IeC {\.z}\IeC {\k a}da\IeC {\'n}}{27}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}Zrzuty ekran\IeC {\'o}w aplikacji internetowej}{29}{subsection.7.5}
+\contentsline {section}{\numberline {8}Testy.}{31}{section.8}
+\contentsline {section}{\numberline {9}Podsumowanie i wnioski.}{33}{section.9}
+\contentsline {section}{\numberline {10}Bibliografia }{33}{section.10}
